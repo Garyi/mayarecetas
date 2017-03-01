@@ -1,0 +1,16 @@
+.logo-img{
+  width: 4em;
+  display: inline-block;
+}
+
+.landing-title{
+  display: inline-block;
+}
+
+.menu-welcome{
+  margin-top: 1em;
+}
+
+.recetas-section-title{
+  margin: 1em auto;
+}
