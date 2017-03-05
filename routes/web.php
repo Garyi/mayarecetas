@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/categoria', function(){
   return view('categoria');
 });
+
+Route::get('/baul', function(){
+  return view('baul');
+});
