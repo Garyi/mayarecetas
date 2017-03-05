@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Categorias</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="node_modules/jquery/dist/jquery.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/angularmodules/categoria_module.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/general_styles.css">
+  <link rel="stylesheet" href="css/welcome_styles.css">
+  <title>Página principal</title>
 </head>
-<body>
+
+<body ng-app="wapp" ng-controller="MainController">
   <div class="container-fluid">
+
     <div class="row">
-    
       <div class="col-md-6">
         <img src="assets/mexican-woman.png" class="logo-img img-responsive"alt="">
         <h1 class="landing-title">El Maya indomable</h1>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-md-5">
 <nav class="navbar navbar-default menu-welcome">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -73,21 +77,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-</div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="jumbotron">
-        <h1 class="text-center">Nombre categoria</h1>
-        <p>Sit dolorum numquam sunt in fugiat voluptate provident quisquam libero reiciendis! Illo quo dolores natus ut quasi! Quas tempora iusto sequi adipisci temporibus fugit dicta fuga. Facilis adipisci aliquid debitis.</p>  
-        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="recetas-section-title">Últimas recetas</h1>
-      </div>
-    </div>
+  <div class="jumbotron">
+    <h1>Nombre categoria</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem laudantium optio, perspiciatis possimus quam veritatis! At eum ut voluptates temporibus consequatur commodi, ad doloribus, quas cumque et, est asperiores deleniti.</p>
+  </div>
     <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
@@ -120,12 +116,12 @@
         <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
     </div>
-    </div>
+  </div>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="assets/carousel/carousel2.jpg" alt="...">
+      <img src="assets/carousel/carousel3.jpg" alt="...">
       <div class="caption">
-        <h3>Frijoles muy mexicanos, creo</h3>
+        <h3>Café muy mexicano, creo</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -136,9 +132,8 @@
         <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
     </div>
-    </div>
-
   </div>
 </div>
+  </div>
 </body>
 </html>

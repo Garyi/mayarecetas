@@ -29,7 +29,7 @@
         <img src="assets/mexican-woman.png" class="logo-img img-responsive"alt="">
         <h1 class="landing-title">El Maya indomable</h1>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
 <nav class="navbar navbar-default menu-welcome">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
