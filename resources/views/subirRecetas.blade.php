@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="js/angularmodules/categoria_module.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/kartiv-fileinput/js/fileinput.min.js"></script>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/welcome_styles.css">
+  <link rel="stylesheet" href="node_modules/kartiv-fileinput/css/fileinput.min.css">
+  <title>Página principal</title>
+
+  <style type="text/css">
+.jumbotron
+{
+ background: #89D1B5;
+min-height: 10px;
+color: #FFF;
+}
+
+
+</style>
+</head>
+
+
+
+<body ng-app="wapp" ng-controller="MainController">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/mexican-woman.png" class="logo-img img-responsive"alt="">
+        <h1 class="landing-title">El Maya indomable</h1>
+      </div>
+
+      <div class="col-md-5">
+<nav class="navbar navbar-default menu-welcome">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Menú</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Inicio<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+      </form>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-toggle="modal" data-target="#registrarse">Registrarse</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#iniciarSesion">Iniciar Sesión</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+      </div>
+    </div>
+
+<div class="container-fluid" ">
+<div class="jumbotron">
+
+    <h2 style="text-align: center"><img width="25" height="25" src="assets/arrow-up.png.png"><label></label>Subir Recetas</h2>
+        <!--<img style="display: block; margin-left: auto; margin-right: auto" width="50" height="50" src="assets/arrow-up.png.png">-->
+
+</div>
+</div>
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-8">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="tituloReceta" class="col-md-1 control-label">Título</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="tituloReceta" placeholder="Título">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="categoriaReceta" class="col-sm-1 control-label">Categoría</label>
+    <div class="col-sm-8">
+      <select class="form-control">
+        <option>Categoría 1</option>
+        <option>Categoría 2</option>
+        <option>Categoría 3</option>
+        <option>Categoría 4</option>
+        <option>Categoría 5</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="estadoReceta" class="col-sm-1 control-label">Estado</label>
+    <div class="col-sm-8">
+      <select class="form-control">
+        <option>Yucatán</option>
+        <option>Oaxaca</option>
+        <option>Nuevo León</option>
+        <option>Coahuila</option>
+        <option>Aguascalientes</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="descripcionReceta" class="col-sm-1 control-label">Detalles</label>
+    <div class="col-sm-8">
+      <textarea class="form-control" id="descripcionReceta" placeholder="Descripción..." rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-10">
+      <button type="submit" class="btn btn-info">Subir receta</button>
+      <img width="20" height="20" src="assets/upload-image.png">
+    </div>
+
+  </div>
+</form>
+
+</div>
+  <div class="col-sm-4">
+    <label class="control-label">Subir Imagen</label>
+    <input id="input-1" type="file" class="file">
+  </div>
+</div>
+</div>
+
+
+
+
+
+ <!--   <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="assets/carousel/carousel1.jpg" alt="...">
+      <div class="caption">
+        <h3>Sincronizada dividida en mucho</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit an
+              im id est laborum.</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="assets/carousel/carousel2.jpg" alt="...">
+      <div class="caption">
+        <h3>Frijoles muy mexicanos, creo</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit an
+              im id est laborum.</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="assets/carousel/carousel3.jpg" alt="...">
+      <div class="caption">
+        <h3>Café muy mexicano, creo</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit an
+              im id est laborum.</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</body>
+
+-->
+
+<!-- MODALES=================================================================== -->
+
+<!-- Modal Iniciar Sesión -->
+
+<div ng-controller="SweetalertController" id="iniciarSesion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Iniciar Sesión</h4>
+      </div>
+      <div class="modal-body">
+         <div class="form-group">
+          <label for="usr">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button  ng-click="sweetalert()" type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- Modal registrarse -->
+
+<div id="registrarse" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Registrarse</h4>
+      </div>
+      <div class="modal-body">
+         <div class="form-group">
+          <label for="usr">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</html>
