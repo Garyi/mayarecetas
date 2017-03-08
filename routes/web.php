@@ -22,3 +22,11 @@ Route::get('/categoria', function(){
 Route::get('/baul', function(){
   return view('baul');
 });
+
+Route::get('/subirRecetas', function(){
+  return view('subirRecetas');
+});
+
+Route::get('/aprobarRecetas', function(){
+  return view('aprobarRecetas');
+});
