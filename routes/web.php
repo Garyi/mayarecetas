@@ -27,6 +27,6 @@ Route::get('/subirRecetas', function(){
   return view('subirRecetas');
 });
 
-Route::get('/aprobarRecetas', function(){
-  return view('aprobarRecetas');
+Route::get('/adminPanel', function(){
+  return view('adminPanel');
 });
