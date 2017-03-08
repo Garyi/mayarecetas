@@ -19,8 +19,9 @@
   <style type="text/css">
 .jumbotron
 {
-
+ background: #89D1B5;
 min-height: 10px;
+color: #FFF;
 }
 
 
@@ -92,10 +93,10 @@ min-height: 10px;
       </div>
     </div>
 
-<div class="container" ">
+<div class="container-fluid" ">
 <div class="jumbotron">
 
-    <h2 style="text-align: center"><img width="25" height="25" src="assets/arrow-up.png.png">Subir Recetas</h2>
+    <h2 style="text-align: center"><img width="25" height="25" src="assets/arrow-up.png.png"><label></label>Subir Recetas</h2>
         <!--<img style="display: block; margin-left: auto; margin-right: auto" width="50" height="50" src="assets/arrow-up.png.png">-->
 
 </div>
