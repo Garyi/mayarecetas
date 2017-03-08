@@ -59,17 +59,14 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Buscar</button>
       </form>
       <ul class="nav navbar-nav navbar-left">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#registrarse">Registrarse</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#iniciarSesion">Iniciar Sesión</a></li>
           </ul>
         </li>
 
@@ -136,4 +133,69 @@
 </div>
   </div>
 </body>
+
+
+
+<!-- MODALES=================================================================== -->
+
+<!-- Modal Iniciar Sesión -->
+
+<div ng-controller="SweetalertController" id="iniciarSesion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Iniciar Sesión</h4>
+      </div>
+      <div class="modal-body">
+         <div class="form-group">
+          <label for="usr">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button  ng-click="sweetalert()" type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- Modal registrarse -->
+
+<div id="registrarse" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Registrarse</h4>
+      </div>
+      <div class="modal-body">
+         <div class="form-group">
+          <label for="usr">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 </html>

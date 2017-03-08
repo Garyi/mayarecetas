@@ -194,18 +194,17 @@
         <h4 class="modal-title">Iniciar Sesión</h4>
       </div>
       <div class="modal-body">
-        <p>Nombre de usuario</p>
-        <input ng-model="usuario" type="text" name="usuario" id="usuario">
-        <br>
-        @{{usuario}}
-        <br>
-        <p>Contraseña</p>
-        <input ng-model="contrasena" type="text" name="contrasena" id="contrasena">
-        <br>
-        @{{contrasena}}
+         <div class="form-group">
+          <label for="usr">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
       </div>
       <div class="modal-footer">
-        <button  ng-click="sweetalert()" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
       </div>
     </div>
 
@@ -226,15 +225,16 @@
         <h4 class="modal-title">Registrarse</h4>
       </div>
       <div class="modal-body">
-        <p>Nombre de usuario</p>
-        <input type="text" name="usuario" id="usuario">
-        <br>
-        <br>
-        <p>Contraseña</p>
-        <input type="text" name="usuario" id="usuario">
-      </div>
+         <div class="form-group">
+          <label for="usr">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Registrar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
       </div>
     </div>
 
