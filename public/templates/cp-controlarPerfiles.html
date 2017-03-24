@@ -1,0 +1,19 @@
+<h1 class="text-center">Control de usuarios</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th>Usuario</th>
+    <th>Perfil</th>
+    <th>Accion</th>
+  </thead>
+  <tr>
+    <td>Garyi</td>
+    <td>
+      <select class="form-control">
+        <option ng-repeat="pe in perfilesExistentes" value="{{pe.id}}">{{pe.nombre}}</option>
+      </select>
+    </td>
+    <td><button type="button" class="btn btn-success" name="button">Asignar</button></td>
+  </tr>
+
+</table>

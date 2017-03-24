@@ -45,17 +45,12 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Sth<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li ><a ui-sref="aprobaciones">Aprobar Recetas<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sth <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Control de Usuario <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="#">!</a></li>
-            <li><a href="#">!</a></li>
-            <li><a href="#">!</a></li>
-            <li class="divider"></li>
-            <li><a href="#">!</a></li>
-            <li class="divider"></li>
-            <li><a href="#">!</a></li>
+            <li><a ui-sref="perfiles">Administrar Perfiles</a></li>
+
           </ul>
         </li>
         <li ><a href="#">Sth<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
