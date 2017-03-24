@@ -15,11 +15,11 @@ class UserController extends Controller
 {
     public function registerUser()
     {
-
+      return 0;
     }
 
     public function loginUser()
     {
-
+      return 0;
     }
 }

@@ -1,9 +1,6 @@
 <?php
 
 
-Blade::setContentTags('<%', '%>');
-Blade::setEscapedContentTags('<%%', '%%>');
-
 
 /*
 Aqui estan las rutas a vistas
