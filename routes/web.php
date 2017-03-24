@@ -1,14 +1,12 @@
 <?php
 
+
+Blade::setContentTags('<%', '%>');
+Blade::setEscapedContentTags('<%%', '%%>');
+
+
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+Aqui estan las rutas a vistas
 */
 
 Route::get('/', function () {
@@ -30,3 +28,10 @@ Route::get('/subirRecetas', function(){
 Route::get('/adminPanel', function(){
   return view('adminPanel');
 });
+
+/*
+Aquí están las rutas a controladores
+*/
+
+Route::post('/registerUser', 'UserController@registerUser');
+Route::post('/loginUser', 'UserController@loginUser');
