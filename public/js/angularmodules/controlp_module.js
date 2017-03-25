@@ -24,11 +24,27 @@ capp.config(function($stateProvider, $urlRouterProvider){
 });
 
 capp.controller('perfilesController', ['$scope', '$http', function($scope, $http){
-
+  $scope.permisoElegido = {permiso:''}
   $http.post('/getProfiles',{})
   .then(function successCallback(response) {
     $scope.perfilesExistentes = response.data;
   }, function errorCallback(response) {
     console.log("Error");
   });
+
+
+  $http.post('/getUsers', {})
+  .then(function successCallback(response){
+    $scope.usuariosExistentes = response.data;
+
+  }, function errorCallback(response){
+    console.log("Error");
+  });
+
+  
+
+  $scope.cambiarPermiso = function(uID){
+    console.log(uID);
+    console.log($scope.permisoElegido);
+  }
 }]);
