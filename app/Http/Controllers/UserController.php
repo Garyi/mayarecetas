@@ -22,4 +22,11 @@ class UserController extends Controller
     {
       return 0;
     }
+
+
+    public function getUsers()
+    {
+      $users = DB::table('usuarios')->select('id','username','perfil_id','email')->get();
+      return $users;
+    }
 }

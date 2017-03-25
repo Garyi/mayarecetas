@@ -33,3 +33,4 @@ Aquí están las rutas a controladores
 Route::post('/registerUser', 'UserController@registerUser');
 Route::post('/loginUser', 'UserController@loginUser');
 Route::post('/getProfiles', 'ProfilesController@getProfiles');
+Route::post('/getUsers', 'UserController@getUsers');
