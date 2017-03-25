@@ -26,6 +26,10 @@ class UserController extends Controller
 
     public function getUsers()
     {
+      /*
+      Esta funcion trae todos los registros de la tabla 'usuarios'
+
+      */
       $users = DB::table('usuarios')->select('id','username','perfil_id','email')->get();
       return $users;
     }
