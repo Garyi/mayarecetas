@@ -7,23 +7,23 @@ Aqui estan las rutas a vistas
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages/welcome');
 });
 
 Route::get('/categoria', function(){
-  return view('categoria');
+  return view('pages/categoria');
 });
 
 Route::get('/baul', function(){
-  return view('baul');
+  return view('pages/baul');
 });
 
 Route::get('/subirRecetas', function(){
-  return view('subirRecetas');
+  return view('pages/subirRecetas');
 });
 
 Route::get('/adminPanel', function(){
-  return view('adminPanel');
+  return view('pages/adminPanel');
 });
 
 /*
@@ -34,3 +34,5 @@ Route::post('/registerUser', 'UserController@registerUser');
 Route::post('/loginUser', 'UserController@loginUser');
 Route::post('/getProfiles', 'ProfilesController@getProfiles');
 Route::post('/getUsers', 'UserController@getUsers');
+
+Route::post('/pruebaBD', 'UserController@pruebaBD');
