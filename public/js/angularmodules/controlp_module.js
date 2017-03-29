@@ -28,6 +28,7 @@ capp.controller('perfilesController', ['$scope', '$http', function($scope, $http
   $http.post('/getProfiles',{})
   .then(function successCallback(response) {
     $scope.perfilesExistentes = response.data;
+
   }, function errorCallback(response) {
     console.log("Error");
   });
@@ -36,15 +37,28 @@ capp.controller('perfilesController', ['$scope', '$http', function($scope, $http
   $http.post('/getUsers', {})
   .then(function successCallback(response){
     $scope.usuariosExistentes = response.data;
-
+    console.log(response.data);
   }, function errorCallback(response){
     console.log("Error");
   });
 
-  
 
+$scope.cambioPermisoData = {userid:'', permiso:''}
   $scope.cambiarPermiso = function(uID){
-    console.log(uID);
-    console.log($scope.permisoElegido);
+    console.log("El uid", uID);
+    console.log("El permiso", $scope.permisoElegido);
+    $scope.cambioPermisoData.userid = uID;
+    $scope.cambioPermisoData.permiso = $scope.permisoElegido.permiso;
+
+    $http.post('/changeProfile', $scope.cambioPermisoData)
+    .then(function successCallback(response) {
+      console.log(response.data);
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+
+
+
   }
 }]);

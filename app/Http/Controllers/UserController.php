@@ -13,47 +13,18 @@ En este controller se van a definir todas las funcionas
 que tengan que ver con el Usuario.
 */
 class UserController extends Controller
-{   
-    #PRUEBA===================================================
-    /*public function getAbout() {
-
-      $first = "Alex";
-      $last = "Curtis";
-
-      $full = $first . " " . $last;
-      return view("page.about")->with("fullname", $full); 
-
-    }   
-    */
-    #PRUEBA===================================================
+{
 
     public function registerUser(Request $request)
     {
 
-      /*$correo = $request->input('test');  // <--- POR ESTOS DOS NO SE REALIZABA EL POST!!!!!! AGRHGHRGRHGRHGRHG NO SABÍA
-      $pwd = md5($request->input('test'));*/
+
 
       $email = Request::input('email');
       $username = Request::input('username');
       $password = Request::input('password');
-      
-
-      /*$email = 'dxbox_livegold@hotmail.es';
-      $username = 'raygaku';
-      $password = 123;*/
-
-      //$queryVerificaEmailRepetido = DB::table('usuarios')->select("SELECT id FROM usuarios WHERE email = '$email'")->get();
-      //$queryVerificaUsernameRepetido = DB::table('usuarios')->select("SELECT id FROM usuarios WHERE username = '$username")->get();
-
-      //$queryVerificaEmailRepetido = DB::table('usuarios')->where()->get();
-      //$queryVerificaUsernameRepetido = DB::table('usuarios')->where()->get();
 
 
-      //$queryVerificaEmailRepetido = DB::table('usuarios')->select('id')->where('email', '=', '$email')->get();
-      //$queryVerificaUsernameRepetido = DB::table('usuarios')->select('id')->where('username', '=', '$username')->get();
-
-      //$queryVerificaEmailRepetido = DB::select('SELECT id FROM usuarios WHERE email = :email', ['email' => 'hola@.com']);
-      //$queryVerificaUsernameRepetido = DB::select('SELECT id FROM usuarios WHERE username = :username', ['username' => 'ray']);
 
       $queryVerificaEmailRepetido = DB::select("SELECT id FROM usuarios WHERE email = '$email'");
       $queryVerificaUsernameRepetido = DB::select("SELECT id FROM usuarios WHERE username = '$username'");
@@ -93,26 +64,14 @@ class UserController extends Controller
 
       }
 
-        
+
 
 
     }
 
     public function pruebaBD(Request $request){
 
-      /*$email = Request::input('email');
-      $username = Request::input('username');
-      $password = Request::input('password');*/
 
-      //DB::insert("INSERT INTO `usuarios` (`id`, `username`, `password`, `perfil_id`, `email`) VALUES (NULL, 'ray2', '1234', '3', 'yo@yo2.com')");
-
-      //DB::connection();
-
-      /*DB::table('usuarios')->insert(
-        ['username' => 'raygakuuu', 'password' => '123456', 'perfil_id' => 3, 'email' => 'john@example.com']
-        );*/
-      //DB::connection()->getDatabaseName();
-      //$query = DB::table('tablaP')->insert(['user' => 1, 'pass' => 2]);
 
 
       $users = DB::table('usuarios')->get();
@@ -135,7 +94,7 @@ class UserController extends Controller
 
          return 1;
 
- 
+
     }
 
 
@@ -146,6 +105,30 @@ class UserController extends Controller
 
       */
       $users = DB::table('usuarios')->select('id','username','perfil_id','email')->get();
-      return 0;
+      return $users;
+    }
+
+    public function changeProfile()
+    {
+      /*
+      Esta función obtiene como parametros el id del usuario y el id del perfil para cambiar el perfil del usuario seleccionado
+      */
+
+      $userid = Request::input('userid');
+      $permiso = Request::input('permiso');
+
+      $change = DB::table('usuarios')->where("id", $userid)->update([
+         'perfil_id' => $permiso,
+        ]);
+
+        if($change)
+        {
+          return 0;
+        }
+        else {
+          return 1;
+        }
+
+
     }
 }
