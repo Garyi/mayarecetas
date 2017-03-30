@@ -24,8 +24,11 @@ Route::get('/subirRecetas', function(){
 
 Route::get('/adminPanel', function(){
   return view('pages/adminPanel');
-});
+})->middleware('checkProfile');
 
+Route::get('/adminLogin', function(){
+  return view('pages/adminLogin');
+});
 /*
 Aquí están las rutas a controladores
 */
@@ -35,5 +38,4 @@ Route::post('/loginUser', 'UserController@loginUser');
 Route::post('/getProfiles', 'ProfilesController@getProfiles');
 Route::post('/getUsers', 'UserController@getUsers');
 Route::post('/changeProfile', 'UserController@changeProfile');
-
-Route::post('/pruebaBD', 'UserController@pruebaBD');
+Route::post('/adminLogin', 'UserController@adminLogin');

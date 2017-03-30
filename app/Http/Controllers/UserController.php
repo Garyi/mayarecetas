@@ -23,7 +23,7 @@ class UserController extends Controller
       $email = Request::input('email');
       $username = Request::input('username');
       $password = Request::input('password');
-
+      $password = md5($password);
 
 
       $queryVerificaEmailRepetido = DB::select("SELECT id FROM usuarios WHERE email = '$email'");
@@ -128,7 +128,30 @@ class UserController extends Controller
         else {
           return 1;
         }
+    }
 
+
+    public function adminLogin()
+    {
+      /*
+        En esta función se controla el login para los administradores desde la ruta adminLogin
+      */
+
+      session_start();
+
+      $username = Request::input('username');
+      $password = Request::input('password');
+      $password = md5($password);
+
+      $usuario = DB::table('usuarios')->select('id','username','perfil_id','email')->where('username', "=",$username)->where('password','=',$password)->get();
+      if(isset($usuario[0]))
+      {
+        $_SESSION['usuario_sesion'] = $usuario;
+        return 200;
+      }
+      else {
+        return 401;
+      }
 
     }
 }
