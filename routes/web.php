@@ -24,6 +24,14 @@ Route::get('/subirRecetas', function(){
 
 Route::get('/adminPanel', function(){
   return view('pages/adminPanel');
+})->middleware('checkProfile');
+
+Route::get('/adminLogin', function(){
+  return view('pages/adminLogin');
+});
+
+Route::get('/webMasterLogin',function(){
+  return view('pages/webMasterLogin');
 });
 
 /*
@@ -37,5 +45,8 @@ Route::post('/getUsers', 'UserController@getUsers');
 Route::post('/changeProfile', 'UserController@changeProfile');
 
 
+
 Route::post('/cerrarSesion', 'UserController@cerrarSesion');
+Route::post('/adminLogin', 'UserController@adminLogin');
+Route::post('/loginWebMaster', 'UserController@webmasterLogin');
 
