@@ -29,6 +29,11 @@ Route::get('/adminPanel', function(){
 Route::get('/adminLogin', function(){
   return view('pages/adminLogin');
 });
+
+Route::get('/webMasterLogin',function(){
+  return view('pages/webMasterLogin');
+});
+
 /*
 Aquí están las rutas a controladores
 */
@@ -39,3 +44,4 @@ Route::post('/getProfiles', 'ProfilesController@getProfiles');
 Route::post('/getUsers', 'UserController@getUsers');
 Route::post('/changeProfile', 'UserController@changeProfile');
 Route::post('/adminLogin', 'UserController@adminLogin');
+Route::post('/loginWebMaster', 'UserController@webmasterLogin');

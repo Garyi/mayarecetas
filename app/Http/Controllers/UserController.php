@@ -154,4 +154,24 @@ class UserController extends Controller
       }
 
     }
+
+
+
+    public function webmasterLogin()
+    {
+      session_start();
+      $username = Request::input('username');
+      $password = Request::input('password');
+      $password = md5($password);
+      $usuario = DB::table('usuarios')->select('id','username','perfil_id','email')->where('username', "=",$username)->where('password','=',$password)->get();
+      if(isset($usuario[0]))
+      {
+        $_SESSION['usuario_sesion'] = $usuario;
+        return 200;
+      }
+      else {
+        return 401;
+      }
+
+    }
 }
