@@ -43,5 +43,10 @@ Route::post('/loginUser', 'UserController@loginUser');
 Route::post('/getProfiles', 'ProfilesController@getProfiles');
 Route::post('/getUsers', 'UserController@getUsers');
 Route::post('/changeProfile', 'UserController@changeProfile');
+
+
+
+Route::post('/cerrarSesion', 'UserController@cerrarSesion');
 Route::post('/adminLogin', 'UserController@adminLogin');
 Route::post('/loginWebMaster', 'UserController@webmasterLogin');
+

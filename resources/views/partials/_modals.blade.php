@@ -14,16 +14,16 @@
       <div class="modal-body">
   
          <div class="form-group">
-          <label for="usr">Correo Electrónico:</label>
-          <input type="email" id="inputEmail" class="form-control" ng-model="usuarioAregistrar.correo" required autofocus>
+          <label for="usr">Usuario:</label>
+          <input type="text" id="inputUser" class="form-control" ng-model="userLogin.username" required autofocus>
         </div>
         <div class="form-group">
           <label for="pwd">Contraseña:</label>
-          <input type="password" id="inputPassword" class="form-control" ng-model="usuarioAregistrar.pwd" required>
+          <input type="password" id="inputPassword" class="form-control" ng-model="userLogin.password" required>
         </div>
       </div>
       <div class="modal-footer">
-        <button ng-click="iniciarSesionU" type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
+        <button ng-click="iniciarSesionU()" type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
       </div>
     </div>
 
