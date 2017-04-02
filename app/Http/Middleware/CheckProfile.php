@@ -16,15 +16,19 @@ class CheckProfile
     public function handle($request, Closure $next)
     {
       session_start();
-      $perfil = $_SESSION['usuario_sesion'][0]->perfil_id;
-      if($perfil == 1)
+      if(isset($_SESSION['usuario_sesion'][0]->perfil_id))
       {
-        return $next($request);
+        if($_SESSION['usuario_sesion'][0]->perfil_id == 1)
+        {
+          return $next($request);
+        }
+        else {
+          return redirect('/');
+        }
       }
       else {
         return redirect('/');
       }
-
 
     }
 }
