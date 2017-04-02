@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-03-2017 a las 05:30:36
+-- Tiempo de generación: 03-04-2017 a las 01:02:04
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -36,9 +36,9 @@ CREATE TABLE `perfiles` (
 --
 
 INSERT INTO `perfiles` (`id`, `nombre`) VALUES
-(1, 'admin'),
-(2, 'master'),
-(3, 'user');
+(1, 'Administrador'),
+(2, 'Creador de Contenido'),
+(3, 'Usuario Normal');
 
 -- --------------------------------------------------------
 
@@ -53,6 +53,14 @@ CREATE TABLE `usuarios` (
   `perfil_id` bigint(50) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `username`, `password`, `perfil_id`, `email`) VALUES
+(3, 'sudogaryi', 'e178f759fe55c8c9596f2202060dc7dd', 1, 'hi.ed@hotmail.com'),
+(5, 'webmaster', '50a9c7dbf0fa09e8969978317dca12e8', 2, 'xbox_live@live.com');
 
 --
 -- Índices para tablas volcadas
@@ -83,7 +91,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
