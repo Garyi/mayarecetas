@@ -36,4 +36,6 @@ Route::post('/getProfiles', 'ProfilesController@getProfiles');
 Route::post('/getUsers', 'UserController@getUsers');
 Route::post('/changeProfile', 'UserController@changeProfile');
 
-Route::post('/pruebaBD', 'UserController@pruebaBD');
+
+Route::post('/cerrarSesion', 'UserController@cerrarSesion');
+

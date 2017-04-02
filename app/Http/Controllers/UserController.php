@@ -69,30 +69,41 @@ class UserController extends Controller
 
     }
 
-    public function pruebaBD(Request $request){
 
 
+    public function loginUser()
+    {
 
+      session_start();
+      $username = Request::input('username');
+      $password = Request::input('password');
 
-      $users = DB::table('usuarios')->get();
+      $queryVerificaDatos = DB::select("SELECT id FROM usuarios WHERE username = '$username' AND password = '$password'");
+
+      if ($queryVerificaDatos != null) {
+
+        foreach ($queryVerificaDatos as $key => $value) {
+          $uid = $value;
+        }
+
+        $_SESSION['userid'] = $uid;
+        //return response()->json($_SESSION['userid']);
+        return 0;
+      }
+      else {
+        return 1;
+      }
+
       return 0;
-
-
-
 
     }
 
-    public function loginUser(Request $request)
-    {
 
-      if(DB::connection()->getDatabaseName())
-         {
+    public function cerrarSesion() {
+      session_start();
+      session_destroy();
 
-          //$users = DB::table('usuarios')->get();
-          return 0;
-         }
-
-         return 1;
+      return 0;
 
 
     }
