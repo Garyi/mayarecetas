@@ -90,23 +90,6 @@ class UserController extends Controller
 /*
       $queryVerificaDatos = DB::select("SELECT id FROM usuarios WHERE username = '$username' AND password = '$password'");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       if ($queryVerificaDatos != null) {
 
         foreach ($queryVerificaDatos as $key => $value) {
@@ -149,15 +132,6 @@ class UserController extends Controller
       DB::insert('INSERT INTO recetas (titulo, categoria, estado, descripcion, uid) VALUES (:titulo, :categoria, :estado, :descripcion, :uid)', ['titulo' => $titulo, 'categoria' => $categoria, 'estado' => $estado, 'descripcion' => $descripcion, 'uid' => $uid]);
 
       return 0;
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -224,6 +198,9 @@ class UserController extends Controller
 
     public function webmasterLogin()
     {
+      /*
+        En esta función se controla el login para los webmaster desde la ruta webmasterLogin
+      */
       session_start();
       $username = Request::input('username');
       $password = Request::input('password');

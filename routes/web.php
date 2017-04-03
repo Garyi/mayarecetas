@@ -34,6 +34,13 @@ Route::get('/webMasterLogin',function(){
   return view('pages/webMasterLogin');
 });
 
+Route::get('/404',function(){
+  return view('404');
+});
+
+
+Route::get('/verreceta={id}','RecetasController@getViewReceta');
+
 /*
 Aquí están las rutas a controladores
 */
@@ -48,4 +55,6 @@ Route::post('/subirRecetas', 'UserController@subirRecetas');
 Route::post('/cerrarSesion', 'UserController@cerrarSesion');
 Route::post('/adminLogin', 'UserController@adminLogin');
 Route::post('/loginWebMaster', 'UserController@webmasterLogin');
-
+Route::post('/cargarRecetasAAprobar', 'RecetasController@cargarRecetasAAprobar');
+Route::post('/aprobarReceta','RecetasController@aprobarReceta');
+Route::post('/getRecetaInfo','RecetasController@getRecetaInfo');

@@ -6,7 +6,8 @@ capp.config(function($stateProvider, $urlRouterProvider){
     url:'/aprobaciones',
     views:{
       'content':{
-        templateUrl:'templates/cp-aprobarTareas.html',
+        templateUrl:'templates/cp-aprobarRecetas.html',
+        controller: 'aprobarController',
       }
     }
   })
@@ -22,6 +23,51 @@ capp.config(function($stateProvider, $urlRouterProvider){
     }
   })
 });
+
+
+capp.controller('aprobarController', ['$scope', '$http', function($scope, $http){
+  $http.post('/cargarRecetasAAprobar',{})
+  .then(function successCallback(response) {
+
+    $scope.recetasAAprobar = response.data;
+    console.log($scope.recetasAAprobar);
+
+  }, function errorCallback(response) {
+    console.log("Error");
+  });
+
+  $scope.datosReceta = {rid:''}
+
+  $scope.leerReceta = function(rid)
+  {
+    window.location = "/verreceta=" + rid;
+  }
+  $scope.aprobar = function(rid)
+  {
+    $scope.datosReceta.rid = rid;
+    $http.post('/aprobarReceta',$scope.datosReceta)
+    .then(function successCallback(response) {
+
+      console.log(response.data);
+      if(response.data == "ok")
+      {
+        swal('Receta Aprobada')
+        $http.post('/cargarRecetasAAprobar',{})
+        .then(function successCallback(response) {
+
+          $scope.recetasAAprobar = response.data;
+          console.log($scope.recetasAAprobar);
+
+        }, function errorCallback(response) {
+          console.log("Error");
+        });
+      }
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+  }
+}]);
 
 capp.controller('perfilesController', ['$scope', '$http', function($scope, $http){
   $scope.permisoElegido = {permiso:''}
