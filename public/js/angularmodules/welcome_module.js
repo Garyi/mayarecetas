@@ -94,7 +94,7 @@ wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
 	$scope.iniciarSesionU = function() {
 		$http.post('/loginUser', $scope.userLogin)
 		.then(function(response){
-			if (response.data == 1) {
+			if (response.data == 401) {
 				swal("Datos incorrectos")
 			}
 			else {
@@ -119,6 +119,18 @@ wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
 	}
 
 
+	$scope.receta = {titulo: '', categoria: '', estado: '', descripcion: ''}
+	$scope.subirReceta = function(){
+		$http.post('/subirRecetas', $scope.receta)
+		.then(function(response){
+			if(response.data == 0) {
+				swal('todo bien al parecer...')
+			}
+		}, function() {
+			swal("Error del servidor")
+		})
+
+	}
 
 
 

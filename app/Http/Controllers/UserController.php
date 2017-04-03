@@ -77,8 +77,35 @@ class UserController extends Controller
       session_start();
       $username = Request::input('username');
       $password = Request::input('password');
-
+      $password = md5($password);
+      $usuario = DB::table('usuarios')->select('id','username','perfil_id','email')->where('username', "=",$username)->where('password','=',$password)->get();
+      if(isset($usuario[0]))
+      {
+        $_SESSION['usuario_sesion'] = $usuario;
+        return 200;
+      }
+      else {
+        return 401;
+      }
+/*
       $queryVerificaDatos = DB::select("SELECT id FROM usuarios WHERE username = '$username' AND password = '$password'");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       if ($queryVerificaDatos != null) {
 
@@ -95,7 +122,7 @@ class UserController extends Controller
       }
 
       return 0;
-
+*/
     }
 
 
@@ -104,6 +131,33 @@ class UserController extends Controller
       session_destroy();
 
       return 0;
+
+
+    }
+
+    public function subirRecetas() {
+      session_start();
+      $titulo = Request::input('titulo');
+      $categoria = Request::input('categoria');
+      $estado = Request::input('estado');
+      $descripcion = Request::input('descripcion');
+      $uid = 1;
+
+
+
+
+      DB::insert('INSERT INTO recetas (titulo, categoria, estado, descripcion, uid) VALUES (:titulo, :categoria, :estado, :descripcion, :uid)', ['titulo' => $titulo, 'categoria' => $categoria, 'estado' => $estado, 'descripcion' => $descripcion, 'uid' => $uid]);
+
+      return 0;
+
+
+
+
+
+
+
+
+
 
 
     }
