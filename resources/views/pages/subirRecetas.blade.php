@@ -1,5 +1,9 @@
-@extends('main')
-@section('content')
+
+<!DOCTYPE html>
+<html lang="en">
+
+@include('partials._head')
+
 
 
   <style type="text/css">
@@ -33,43 +37,43 @@ color: #FFF;
   <div class="form-group">
     <label for="tituloReceta" class="col-md-1 control-label">Título</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="tituloReceta" placeholder="Título">
+      <input ng-model="receta.titulo" type="text" class="form-control" id="tituloReceta" placeholder="Título">
     </div>
   </div>
   <div class="form-group">
     <label for="categoriaReceta" class="col-sm-1 control-label">Categoría</label>
     <div class="col-sm-8">
-      <select class="form-control">
-        <option>Categoría 1</option>
-        <option>Categoría 2</option>
-        <option>Categoría 3</option>
-        <option>Categoría 4</option>
-        <option>Categoría 5</option>
+      <select ng-model="receta.categoria" class="form-control">
+        <option value="1">Categoría 1</option>
+        <option value="2">Categoría 2</option>
+        <option value="3">Categoría 3</option>
+        <option value="4">Categoría 4</option>
+        <option value="5">Categoría 5</option>
       </select>
     </div>
   </div>
   <div class="form-group">
     <label for="estadoReceta" class="col-sm-1 control-label">Estado</label>
     <div class="col-sm-8">
-      <select class="form-control">
-        <option>Yucatán</option>
-        <option>Oaxaca</option>
-        <option>Nuevo León</option>
-        <option>Coahuila</option>
-        <option>Aguascalientes</option>
+      <select ng-model="receta.estado" class="form-control">
+        <option value="Yucatán">Yucatán</option>
+        <option value="Oaxaca">Oaxaca</option>
+        <option value="Nuevo León">Nuevo León</option>
+        <option value="coahuila">Coahuila</option>
+        <option value="Aguascalientes">Aguascalientes</option>
       </select>
     </div>
   </div>
   <div class="form-group">
     <label for="descripcionReceta" class="col-sm-1 control-label">Detalles</label>
     <div class="col-sm-8">
-      <textarea class="form-control" id="descripcionReceta" placeholder="Descripción..." rows="3"></textarea>
+      <textarea ng-model="receta.descripcion" class="form-control" id="descripcionReceta" placeholder="Descripción..." rows="3"></textarea>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-1 col-sm-10">
-      <button type="submit" class="btn btn-info">Subir receta</button>
+      <button ng-click="subirReceta()" type="submit" class="btn btn-info">Subir receta</button>
       <img width="20" height="20" src="assets/upload-image.png">
     </div>
 
@@ -86,4 +90,5 @@ color: #FFF;
 
 
 
-@endsection
+</body>
+</html>
