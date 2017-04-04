@@ -58,3 +58,4 @@ Route::post('/loginWebMaster', 'UserController@webmasterLogin');
 Route::post('/cargarRecetasAAprobar', 'RecetasController@cargarRecetasAAprobar');
 Route::post('/aprobarReceta','RecetasController@aprobarReceta');
 Route::post('/getRecetaInfo','RecetasController@getRecetaInfo');
+Route::post('/getAllRecetas','RecetasController@getAllRecetas');

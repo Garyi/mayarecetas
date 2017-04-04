@@ -27,10 +27,15 @@ class RecetasController extends Controller
     }
 
 
+    public function getAllRecetas()
+    {
+      $recetas = DB::table('recetas')->where('aprobacion',1)->get();
+      return $recetas;
+    }
+
+
     public function getViewReceta($id)
     {
-      session_start();
-      $_SESSION['recetaid'] = $id;
       $receta = DB::table('recetas')->where('id',$id)->get();
       if(count($receta) != 0)
       {
@@ -43,8 +48,8 @@ class RecetasController extends Controller
 
     public function getRecetaInfo()
     {
-      session_start();
-      $receta = DB::table('recetas')->where('id',$_SESSION['recetaid'])->get();
+      $id = Request::input('id');
+      $receta = DB::table('recetas')->where('id',$id)->get();
       return $receta;
     }
 }
