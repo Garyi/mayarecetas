@@ -20,7 +20,7 @@ Route::get('/baul', function(){
 
 Route::get('/subirRecetas', function(){
   return view('pages/subirRecetas');
-});
+})->middleware('checkIfMaster');
 
 Route::get('/adminPanel', function(){
   return view('pages/adminPanel');
@@ -59,3 +59,5 @@ Route::post('/cargarRecetasAAprobar', 'RecetasController@cargarRecetasAAprobar')
 Route::post('/aprobarReceta','RecetasController@aprobarReceta');
 Route::post('/getRecetaInfo','RecetasController@getRecetaInfo');
 Route::post('/getAllRecetas','RecetasController@getAllRecetas');
+Route::post('/getLugares','LugaresController@getLugares');
+Route::post('/agregarLugar','LugaresController@agregarLugar');

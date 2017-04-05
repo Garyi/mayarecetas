@@ -39,13 +39,13 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <?php if (isset($_SESSION['usuario_sesion'])):  ?>
+            
               <li><a href="#" ng-click="cerrarSesion();">Cerrar Sesión</a></li>
-            <?php else:  ?>
+
             <li><a href="#" data-toggle="modal" data-target="#registrarse">Registrarse</a></li>
             <li><a href="#" data-toggle="modal" data-target="#iniciarSesion">Iniciar Sesión</a></li>
 
-            <?php endif; ?>
+
           </ul>
         </li>
 

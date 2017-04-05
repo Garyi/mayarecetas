@@ -18,7 +18,7 @@ class CheckIfMaster
       session_start();
       if(isset($_SESSION['usuario_sesion'][0]->perfil_id))
       {
-        if($_SESSION['usuario_sesion'][0]->perfil_id == 1)
+        if($_SESSION['usuario_sesion'][0]->perfil_id == 2)
         {
           return $next($request);
         }

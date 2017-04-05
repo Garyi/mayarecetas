@@ -1,0 +1,21 @@
+  <div class="col-md-4">
+    <div class="form-group">
+    <form >
+    <h1>Agregar Lugares</h1>
+    <label for="lugarName">Nombre</label>
+    <input id="lugarName" type="text" class="form-control" style="margin-bottom:1em" ng-model="lugarParaAgregar.nombre">
+    <button type="button" class="btn btn-success" name="button" ng-click="agregar()">Agregar</button>
+    </form>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-6 col-sm-offset-2">
+    <h2>Lugares existentes</h2>
+    <table class="table table-bordered">
+      <tr class="danger" ng-repeat="lugar in lugaresExistentes">
+        <td> {{lugar.nombre}} </td>
+      </tr>
+    </table>
+  </div>

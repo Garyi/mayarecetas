@@ -1,7 +1,7 @@
 myapp = angular.module('myapp', [], function($interpolateProvider)
 {
   $interpolateProvider.startSymbol('<%');
-       $interpolateProvider.endSymbol('%>');
+  $interpolateProvider.endSymbol('%>');
 });
 myapp.controller('mainController', ['$scope', '$http','$location', function($scope, $http, $location){
 

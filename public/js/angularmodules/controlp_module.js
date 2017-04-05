@@ -22,8 +22,52 @@ capp.config(function($stateProvider, $urlRouterProvider){
       }
     }
   })
+  $stateProvider.state('agregarLugares', {
+    url:'/agregarLugares',
+    views:{
+      'content':{
+        templateUrl:'templates/cp-agregarLugares.html',
+        controller :'agregarLugares',
+      }
+    }
+  })
 });
 
+capp.controller('agregarLugares',['$scope','$http',function($scope, $http){
+
+  $scope.lugarParaAgregar = {nombre:''}
+
+  $scope.agregar = function()
+  {
+    console.log($scope.lugarParaAgregar);
+    $http.post('/agregarLugar',$scope.lugarParaAgregar)
+    .then(function successCallback(response) {
+
+      console.log(response.data);
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+
+    $http.post('/getLugares',{})
+    .then(function successCallback(response) {
+      $scope.lugaresExistentes = response.data
+      console.log(response.data);
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+  }
+  $http.post('/getLugares',{})
+  .then(function successCallback(response) {
+    $scope.lugaresExistentes = response.data
+    console.log(response.data);
+
+  }, function errorCallback(response) {
+    console.log("Error");
+  });
+
+}]);
 
 capp.controller('aprobarController', ['$scope', '$http', function($scope, $http){
   $http.post('/cargarRecetasAAprobar',{})

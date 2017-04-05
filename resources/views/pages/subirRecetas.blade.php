@@ -6,21 +6,7 @@
 
 
 
-  <style type="text/css">
-.jumbotron
-{
- background: #89D1B5;
-min-height: 10px;
-color: #FFF;
-}
-
-
-</style>
-
-
-
-
-<div class="container-fluid" ">
+<div class="container-fluid" >
 <div class="jumbotron">
 
     <h2 style="text-align: center"><img width="25" height="25" src="assets/arrow-up.png.png"><label></label>Subir Recetas</h2>
@@ -65,23 +51,23 @@ color: #FFF;
     </div>
   </div>
   <div class="form-group">
-    <label for="descripcionReceta" class="col-sm-1 control-label">Detalles</label>
+    <label for="descripcionReceta" class="col-sm-1 control-label">Descripción</label>
     <div class="col-sm-8">
-      <textarea ng-model="receta.descripcion" class="form-control" id="descripcionReceta" placeholder="Descripción..." rows="3"></textarea>
+      <textarea ng-model="receta.descripcion" class="form-control"  id="descripcionReceta" placeholder="Descripción..." rows="20"></textarea>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-1 col-sm-10">
       <button ng-click="subirReceta()" type="submit" class="btn btn-info">Subir receta</button>
-      <img width="20" height="20" src="assets/upload-image.png">
+      <img width="20" height="20" src="assets/upload-image.png" style="display:none;">
     </div>
 
   </div>
 </form>
 
 </div>
-  <div class="col-sm-4">
+  <div class="col-sm-4" style="display:none ">
     <label class="control-label">Subir Imagen</label>
     <input id="input-1" type="file" class="file">
   </div>
