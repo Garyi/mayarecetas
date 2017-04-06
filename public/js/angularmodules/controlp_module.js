@@ -31,7 +31,73 @@ capp.config(function($stateProvider, $urlRouterProvider){
       }
     }
   })
+  $stateProvider.state('eliminarLugares', {
+    url:'/eliminarLugares',
+    views:{
+      'content':{
+        templateUrl:'templates/cp-eliminarLugares.html',
+        controller :'eliminarLugares',
+      }
+    }
+  })
 });
+
+
+capp.controller('eliminarLugares',['$scope','$http', function($scope, $http){
+  $scope.lugarAEliminar = {id:''}
+  console.log("Entramos a eliminar");
+  $http.post('/getLugares',{})
+  .then(function successCallback(response) {
+
+    $scope.lugaresRegistrados = response.data;
+    console.log(response.data);
+
+  }, function errorCallback(response) {
+    console.log("Error");
+  });
+
+  ///eliminarLugar
+  $scope.eliminarLugar = function(lid) {
+    $scope.lugarAEliminar.id = lid;
+    swal({
+  title: "¿Está Seguro?",
+  text: "¡No hay vuelta atras!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Sí, ¡elimina!",
+  closeOnConfirm: true,
+  },
+    function(){
+      $http.post('/eliminarLugar',$scope.lugarAEliminar)
+      .then(function successCallback(response) {
+
+        if(response.data == 100)
+        {
+          $http.post('/getLugares',{})
+          .then(function successCallback(response) {
+
+            $scope.lugaresRegistrados = response.data;
+            console.log(response.data);
+
+          }, function errorCallback(response) {
+            console.log("Error");
+          });
+
+        }
+        if(response.data == 500) {
+          sweetAlert("Oops...", "¡Algo ocurrió mal!", "error");
+        }
+
+      }, function errorCallback(response) {
+        console.log("Error");
+      });
+    });
+
+
+
+  }
+}]);
 
 capp.controller('agregarLugares',['$scope','$http',function($scope, $http){
 
@@ -44,6 +110,7 @@ capp.controller('agregarLugares',['$scope','$http',function($scope, $http){
     .then(function successCallback(response) {
 
       console.log(response.data);
+      $scope.lugarParaAgregar = {nombre:''}
 
     }, function errorCallback(response) {
       console.log("Error");

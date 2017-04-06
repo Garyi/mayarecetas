@@ -24,4 +24,18 @@ class LugaresController extends Controller
 
       return 1;
     }
+
+
+    public function eliminarLugar()
+    {
+      $lid = Request::input('id');
+      $query = DB::table('lugares')->where('id', $lid)->delete();
+      if($query)
+      {
+        return 100;
+      }
+      else{
+        return 500;
+      }
+    }
 }

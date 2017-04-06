@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-04-2017 a las 04:50:10
+-- Tiempo de generación: 06-04-2017 a las 06:10:45
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -57,11 +57,13 @@ CREATE TABLE `lugares` (
 --
 
 INSERT INTO `lugares` (`id`, `nombre`, `status`) VALUES
-(1, 'Nuevo León', 1),
-(2, 'Yucatán', 1),
-(3, 'Campeche', 1),
-(4, 'Sinaloa', 1),
-(5, 'Cancún', 1);
+(9, 'Nuevo León', 1),
+(10, 'Campeche', 1),
+(11, 'Sinaloa', 1),
+(12, 'CDMX', 1),
+(13, 'Querétaro', 1),
+(14, 'Sonora', 1),
+(15, 'Chihuaha', 1);
 
 -- --------------------------------------------------------
 
@@ -175,7 +177,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `lugares`
 --
 ALTER TABLE `lugares`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
 --

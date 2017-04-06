@@ -57,6 +57,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Control de Lugares <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">
             <li><a ui-sref="agregarLugares">Agregar Lugares</a></li>
+            <li><a ui-sref="eliminarLugares">Eliminar Lugares</a></li>
 
           </ul>
         </li>

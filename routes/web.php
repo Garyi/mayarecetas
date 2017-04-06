@@ -61,3 +61,4 @@ Route::post('/getRecetaInfo','RecetasController@getRecetaInfo');
 Route::post('/getAllRecetas','RecetasController@getAllRecetas');
 Route::post('/getLugares','LugaresController@getLugares');
 Route::post('/agregarLugar','LugaresController@agregarLugar');
+Route::post('/eliminarLugar','LugaresController@eliminarLugar');
