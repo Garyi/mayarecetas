@@ -62,7 +62,7 @@ class RecetasController extends Controller
       $uid = 1;
 
 
-      DB::insert('INSERT INTO recetas (titulo, lid, descripcion, uid) VALUES (:titulo, :lugar, :descripcion, :uid)', ['titulo' => $titulo, 'lugar' => $lugar, 'descripcion' => $descripcion, 'uid' => $uid]);
+      DB::insert('INSERT INTO recetas (titulo, estado, descripcion, uid) VALUES (:titulo, :lugar, :descripcion, :uid)', ['titulo' => $titulo, 'lugar' => $lugar, 'descripcion' => $descripcion, 'uid' => $uid]);
 
       return 0;
 

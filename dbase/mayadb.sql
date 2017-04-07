@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-04-2017 a las 06:10:45
+-- Tiempo de generación: 07-04-2017 a las 08:41:07
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -94,7 +94,6 @@ INSERT INTO `perfiles` (`id`, `nombre`) VALUES
 CREATE TABLE `recetas` (
   `id` bigint(20) NOT NULL,
   `titulo` varchar(100) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
   `estado` varchar(20) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `uid` bigint(20) NOT NULL,
@@ -105,8 +104,9 @@ CREATE TABLE `recetas` (
 -- Volcado de datos para la tabla `recetas`
 --
 
-INSERT INTO `recetas` (`id`, `titulo`, `categoria`, `estado`, `descripcion`, `uid`, `aprobacion`) VALUES
-(1, 'Calabacitas con elote', 'categoria 1', 'Yucatan', '5 elotes tiernos, desgranados\n2 cucharadas de aceite\n1/4 taza de cebolla picada\n1 diente de ajo, finamente picado\n250 gramos de jitomate, finamente picado\n1/2 kilo de calabacitas, rebanadas\n1 chile poblano, sin semillas y picado\nSal y pimienta, al gustoColoca los granos de elote en una cacerola mediana, cúbrelos con agua y deja que suelten el hervor a fuego alto. Tapa, reduce el fuego a bajo y cocina durante 5 minutos o hasta que se hayan ablandado. Escurre bien.\nMientras, calienta el aceite en un sartén grande a fuego medio, y sofríe la cebolla y el ajo hasta que se vean transparentes. Agrega el jitomate y cocina hasta que cambie de color. Incorpora las calabacitas, chile poblano y granos de elote cocidos; sazona con sal y pimienta. Cocina a fuego bajo, moviendo de vez en cuando, hasta que las calabacitas estén suaves, pero aún firmes, aproximadamente 10 minutos.', 1, 0);
+INSERT INTO `recetas` (`id`, `titulo`, `estado`, `descripcion`, `uid`, `aprobacion`) VALUES
+(1, 'Calabacitas con elote', 'Yucatan', '5 elotes tiernos, desgranados\n2 cucharadas de aceite\n1/4 taza de cebolla picada\n1 diente de ajo, finamente picado\n250 gramos de jitomate, finamente picado\n1/2 kilo de calabacitas, rebanadas\n1 chile poblano, sin semillas y picado\nSal y pimienta, al gustoColoca los granos de elote en una cacerola mediana, cúbrelos con agua y deja que suelten el hervor a fuego alto. Tapa, reduce el fuego a bajo y cocina durante 5 minutos o hasta que se hayan ablandado. Escurre bien.\nMientras, calienta el aceite en un sartén grande a fuego medio, y sofríe la cebolla y el ajo hasta que se vean transparentes. Agrega el jitomate y cocina hasta que cambie de color. Incorpora las calabacitas, chile poblano y granos de elote cocidos; sazona con sal y pimienta. Cocina a fuego bajo, moviendo de vez en cuando, hasta que las calabacitas estén suaves, pero aún firmes, aproximadamente 10 minutos.', 1, 0),
+(2, 'asdas', 'Nuevo León', 'asdad', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -187,7 +187,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `recetas`
 --
 ALTER TABLE `recetas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
