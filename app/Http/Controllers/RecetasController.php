@@ -67,4 +67,14 @@ class RecetasController extends Controller
     }
 
 
+    public function eliminarReceta()
+    {
+      $id = Request::input('id');
+      $query = DB::table('recetas')->where('id',$id)->delete();
+      if(!$query)
+      {
+        return 500;
+      }
+    }
+
 }

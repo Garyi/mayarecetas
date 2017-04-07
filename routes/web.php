@@ -26,9 +26,9 @@ Route::get('/adminPanel', function(){
   return view('pages/adminPanel');
 })->middleware('checkProfile');
 
-/*Route::get('/adminLogin', function(){
+Route::get('/adminAccess', function(){
   return view('pages/adminLogin');
-});*/
+});
 
 Route::get('/webMasterLogin',function(){
   return view('pages/webMasterLogin');
@@ -60,6 +60,7 @@ Route::post('/cargarRecetasAAprobar', 'RecetasController@cargarRecetasAAprobar')
 Route::post('/aprobarReceta','RecetasController@aprobarReceta');
 Route::post('/getRecetaInfo','RecetasController@getRecetaInfo');
 Route::post('/getAllRecetas','RecetasController@getAllRecetas');
+Route::post('/eliminarRecetaC','RecetasController@eliminarReceta');
 Route::post('/getLugares','LugaresController@getLugares');
 Route::post('/agregarLugar','LugaresController@agregarLugar');
 Route::post('/eliminarLugar','LugaresController@eliminarLugar');

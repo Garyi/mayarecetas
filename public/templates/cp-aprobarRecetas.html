@@ -16,12 +16,14 @@
       <th>Receta</th>
       <th>Leer</th>
       <th>Aprobar</th>
+      <th>Eliminar</th>
     </thead>
 
     <tr ng-repeat="receta in recetasAAprobar">
       <td>{{receta.titulo}}</td>
       <td> <button type="button" class="btn btn-info" name="button" ng-click="leerReceta(receta.id)"> Leer</button></td>
-      <td> <button type="button" class="btn btn-success" name="button" ng-click="aprobar(receta.id)"> Aprobar</button></td></td>
+      <td> <button type="button" class="btn btn-success" name="button" ng-click="aprobar(receta.id)"> Aprobar</button></td>
+      <td><button type="button" class="btn btn-danger" name="button" ng-click="eliminar(receta.id)"> Eliminar</button></td>
     </tr>
 
 
