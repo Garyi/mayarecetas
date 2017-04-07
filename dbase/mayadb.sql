@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 06-04-2017 a las 06:10:45
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.5.38
+-- Host: localhost
+-- Generation Time: Apr 07, 2017 at 08:32 
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,33 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `mayadb`
+-- Database: `mayadb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
---
-
-CREATE TABLE `categorias` (
-  `id` bigint(20) NOT NULL,
-  `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`id`, `nombre`) VALUES
-(1, 'Categoría 1'),
-(2, 'Categoría 2'),
-(3, 'Categoría 3');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `lugares`
+-- Table structure for table `lugares`
 --
 
 CREATE TABLE `lugares` (
@@ -53,7 +33,7 @@ CREATE TABLE `lugares` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `lugares`
+-- Dumping data for table `lugares`
 --
 
 INSERT INTO `lugares` (`id`, `nombre`, `status`) VALUES
@@ -68,7 +48,7 @@ INSERT INTO `lugares` (`id`, `nombre`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `perfiles`
+-- Table structure for table `perfiles`
 --
 
 CREATE TABLE `perfiles` (
@@ -77,7 +57,7 @@ CREATE TABLE `perfiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `perfiles`
+-- Dumping data for table `perfiles`
 --
 
 INSERT INTO `perfiles` (`id`, `nombre`) VALUES
@@ -88,30 +68,29 @@ INSERT INTO `perfiles` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `recetas`
+-- Table structure for table `recetas`
 --
 
 CREATE TABLE `recetas` (
   `id` bigint(20) NOT NULL,
   `titulo` varchar(100) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
-  `estado` varchar(20) NOT NULL,
+  `lid` bigint(20) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `uid` bigint(20) NOT NULL,
   `aprobacion` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `recetas`
+-- Dumping data for table `recetas`
 --
 
-INSERT INTO `recetas` (`id`, `titulo`, `categoria`, `estado`, `descripcion`, `uid`, `aprobacion`) VALUES
-(1, 'Calabacitas con elote', 'categoria 1', 'Yucatan', '5 elotes tiernos, desgranados\n2 cucharadas de aceite\n1/4 taza de cebolla picada\n1 diente de ajo, finamente picado\n250 gramos de jitomate, finamente picado\n1/2 kilo de calabacitas, rebanadas\n1 chile poblano, sin semillas y picado\nSal y pimienta, al gustoColoca los granos de elote en una cacerola mediana, cúbrelos con agua y deja que suelten el hervor a fuego alto. Tapa, reduce el fuego a bajo y cocina durante 5 minutos o hasta que se hayan ablandado. Escurre bien.\nMientras, calienta el aceite en un sartén grande a fuego medio, y sofríe la cebolla y el ajo hasta que se vean transparentes. Agrega el jitomate y cocina hasta que cambie de color. Incorpora las calabacitas, chile poblano y granos de elote cocidos; sazona con sal y pimienta. Cocina a fuego bajo, moviendo de vez en cuando, hasta que las calabacitas estén suaves, pero aún firmes, aproximadamente 10 minutos.', 1, 0);
+INSERT INTO `recetas` (`id`, `titulo`, `lid`, `descripcion`, `uid`, `aprobacion`) VALUES
+(1, 'Calabacitas con elote', 0, '5 elotes tiernos, desgranados\n2 cucharadas de aceite\n1/4 taza de cebolla picada\n1 diente de ajo, finamente picado\n250 gramos de jitomate, finamente picado\n1/2 kilo de calabacitas, rebanadas\n1 chile poblano, sin semillas y picado\nSal y pimienta, al gustoColoca los granos de elote en una cacerola mediana, cúbrelos con agua y deja que suelten el hervor a fuego alto. Tapa, reduce el fuego a bajo y cocina durante 5 minutos o hasta que se hayan ablandado. Escurre bien.\nMientras, calienta el aceite en un sartén grande a fuego medio, y sofríe la cebolla y el ajo hasta que se vean transparentes. Agrega el jitomate y cocina hasta que cambie de color. Incorpora las calabacitas, chile poblano y granos de elote cocidos; sazona con sal y pimienta. Cocina a fuego bajo, moviendo de vez en cuando, hasta que las calabacitas estén suaves, pero aún firmes, aproximadamente 10 minutos.', 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -123,7 +102,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`, `perfil_id`, `email`) VALUES
@@ -131,65 +110,54 @@ INSERT INTO `usuarios` (`id`, `username`, `password`, `perfil_id`, `email`) VALU
 (5, 'webmaster', '50a9c7dbf0fa09e8969978317dca12e8', 2, 'xbox_live@live.com');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `lugares`
+-- Indexes for table `lugares`
 --
 ALTER TABLE `lugares`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `perfiles`
+-- Indexes for table `perfiles`
 --
 ALTER TABLE `perfiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `recetas`
+-- Indexes for table `recetas`
 --
 ALTER TABLE `recetas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `lugares`
+-- AUTO_INCREMENT for table `lugares`
 --
 ALTER TABLE `lugares`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT de la tabla `perfiles`
+-- AUTO_INCREMENT for table `perfiles`
 --
 ALTER TABLE `perfiles`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `recetas`
+-- AUTO_INCREMENT for table `recetas`
 --
 ALTER TABLE `recetas`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
