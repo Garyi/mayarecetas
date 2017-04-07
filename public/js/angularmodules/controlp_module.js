@@ -115,7 +115,7 @@ capp.controller('actualizarLugares',['$scope','$http', function($scope, $http){
       console.log("Error");
     });
 
-    $scope.lugarAActualizar = {id:'', nombre:''}  
+    $scope.lugarAActualizar = {id:'', nombre:''}
   }
 
 }]);
@@ -170,9 +170,6 @@ capp.controller('eliminarLugares',['$scope','$http', function($scope, $http){
         console.log("Error");
       });
     });
-
-
-
   }
 }]);
 
@@ -253,6 +250,39 @@ capp.controller('aprobarController', ['$scope', '$http', function($scope, $http)
 
     }, function errorCallback(response) {
       console.log("Error");
+    });
+  }
+
+  $scope.eliminar = function(rid)
+  {
+    $scope.recetaAEliminar = {id:rid}
+    console.log(rid);
+    swal({
+  title: "¿Está Seguro?",
+  text: "¡No hay vuelta atras!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Sí, ¡elimina!",
+  closeOnConfirm: true,
+  },
+    function(){
+      $http.post('/eliminarRecetaC', $scope.recetaAEliminar)
+      .then(function successCallback(response) {
+        $scope.recetaAEliminar = {id: ''}
+        $http.post('/cargarRecetasAAprobar',{})
+        .then(function successCallback(response) {
+
+          $scope.recetasAAprobar = response.data;
+          console.log($scope.recetasAAprobar);
+
+        }, function errorCallback(response) {
+          console.log("Error");
+        });
+
+      }, function errorCallback(response) {
+        console.log("Error");
+      });
     });
   }
 }]);

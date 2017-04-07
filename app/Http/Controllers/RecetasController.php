@@ -65,7 +65,15 @@ class RecetasController extends Controller
       DB::insert('INSERT INTO recetas (titulo, estado, descripcion, uid) VALUES (:titulo, :lugar, :descripcion, :uid)', ['titulo' => $titulo, 'lugar' => $lugar, 'descripcion' => $descripcion, 'uid' => $uid]);
 
       return 0;
+    }
 
-
+    public function eliminarReceta()
+    {
+      $id = Request::input('id');
+      $query = DB::table('recetas')->where('id',$id)->delete();
+      if(!$query)
+      {
+        return 500;
+      }
     }
 }

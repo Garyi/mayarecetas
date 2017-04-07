@@ -59,6 +59,7 @@ Route::post('/cargarRecetasAAprobar', 'RecetasController@cargarRecetasAAprobar')
 Route::post('/aprobarReceta','RecetasController@aprobarReceta');
 Route::post('/getRecetaInfo','RecetasController@getRecetaInfo');
 Route::post('/getAllRecetas','RecetasController@getAllRecetas');
+Route::post('/eliminarRecetaC','RecetasController@eliminarReceta');
 Route::post('/getLugares','LugaresController@getLugares');
 Route::post('/agregarLugar','LugaresController@agregarLugar');
 Route::post('/eliminarLugar','LugaresController@eliminarLugar');
