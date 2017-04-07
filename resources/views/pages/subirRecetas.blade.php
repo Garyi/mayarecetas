@@ -4,7 +4,8 @@
 
 @include('partials._head')
 
-
+<script src="js/angularmodules/subirRecetas_module.js"></script>
+  
 
 <div class="container-fluid" >
 <div class="jumbotron">
@@ -16,7 +17,7 @@
 </div>
 
 
-<div class="container-fluid">
+<div ng-app="rapp" ng-controller="MainController" class="container-fluid">
 <div class="row">
 <div class="col-sm-8">
 <form class="form-horizontal">
@@ -27,21 +28,9 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="categoriaReceta" class="col-sm-1 control-label">Categoría</label>
+    <label for="estadoReceta" class="col-sm-1 control-label">Lugar</label>
     <div class="col-sm-8">
-      <select ng-model="receta.categoria" class="form-control">
-        <option value="1">Categoría 1</option>
-        <option value="2">Categoría 2</option>
-        <option value="3">Categoría 3</option>
-        <option value="4">Categoría 4</option>
-        <option value="5">Categoría 5</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="estadoReceta" class="col-sm-1 control-label">Estado</label>
-    <div class="col-sm-8">
-      <select ng-model="receta.estado" class="form-control">
+      <select ng-model="receta.lugar" class="form-control">
         <option value="Yucatán">Yucatán</option>
         <option value="Oaxaca">Oaxaca</option>
         <option value="Nuevo León">Nuevo León</option>
@@ -53,7 +42,7 @@
   <div class="form-group">
     <label for="descripcionReceta" class="col-sm-1 control-label">Descripción</label>
     <div class="col-sm-8">
-      <textarea ng-model="receta.descripcion" class="form-control"  id="descripcionReceta" placeholder="Descripción..." rows="20"></textarea>
+      <textarea ng-model="receta.descripcion" class="form-control"  id="descripcionReceta" placeholder="Descripción..." rows="10"></textarea>
     </div>
   </div>
 
