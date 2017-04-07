@@ -7,8 +7,6 @@
   <script src="node_modules/jquery/dist/jquery.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="js/angularmodules/welcome_module.js"></script>
-  <script src="js/angularmodules/categoria_module.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/sweetalert-master/dist/sweetalert.min.js"></script>
   <script src="node_modules/kartiv-fileinput/js/fileinput.min.js"></script>

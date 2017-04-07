@@ -95,18 +95,6 @@ $scope.leerReceta = function(rid)
 	}
 
 
-	$scope.receta = {titulo: '', categoria: '', estado: '', descripcion: ''}
-	$scope.subirReceta = function(){
-		$http.post('/subirRecetas', $scope.receta)
-		.then(function(response){
-			if(response.data == 0) {
-				swal('todo bien al parecer...')
-			}
-		}, function() {
-			swal("Error del servidor")
-		})
-
-	}
 
     $('#gotorecetas').on('click', function (e) {
         $("html, body").animate({ scrollTop: $(document).height() }, 1000);

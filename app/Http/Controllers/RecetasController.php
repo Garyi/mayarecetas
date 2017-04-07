@@ -52,4 +52,20 @@ class RecetasController extends Controller
       $receta = DB::table('recetas')->where('id',$id)->get();
       return $receta;
     }
+
+    public function subirRecetas() {
+      session_start();
+      $titulo = Request::input('titulo');
+      //$titulo = "empanadas";
+      $lugar = Request::input('lugar');
+      $descripcion = Request::input('descripcion');
+      $uid = 1;
+
+
+      DB::insert('INSERT INTO recetas (titulo, lid, descripcion, uid) VALUES (:titulo, :lugar, :descripcion, :uid)', ['titulo' => $titulo, 'lugar' => $lugar, 'descripcion' => $descripcion, 'uid' => $uid]);
+
+      return 0;
+
+
+    }
 }
