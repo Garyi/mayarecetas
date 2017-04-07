@@ -26,9 +26,9 @@ Route::get('/adminPanel', function(){
   return view('pages/adminPanel');
 })->middleware('checkProfile');
 
-/*Route::get('/adminLogin', function(){
+Route::get('/adminAccess', function(){
   return view('pages/adminLogin');
-});*/
+});
 
 Route::get('/webMasterLogin',function(){
   return view('pages/webMasterLogin');
