@@ -7,7 +7,7 @@ rapp.controller('MainController', ['$scope', '$http', '$location', function($sco
 	$scope.receta = {titulo: '', lugar: '', descripcion: ''}
 	console.log($scope.receta);
 	$scope.subirReceta = function(){
-		$http.post('/subirRecetasV', $scope.receta)
+		$http.post('/subirRecetasC', $scope.receta)
 		.then(function(response){
 			if(response.data == 0) {
 				swal('todo bien al parecer...')

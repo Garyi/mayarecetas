@@ -50,7 +50,7 @@ Route::post('/loginUser', 'UserController@loginUser');
 Route::post('/getProfiles', 'ProfilesController@getProfiles');
 Route::post('/getUsers', 'UserController@getUsers');
 Route::post('/changeProfile', 'UserController@changeProfile');
-Route::post('/subirRecetasV', 'RecetasController@subirRecetas');
+Route::post('/subirRecetasC', 'RecetasController@subirRecetas');
 
 Route::post('/cerrarSesion', 'UserController@cerrarSesion');
 Route::post('/adminLogin', 'UserController@adminLogin');
