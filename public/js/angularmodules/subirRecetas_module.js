@@ -17,4 +17,17 @@ rapp.controller('MainController', ['$scope', '$http', '$location', function($sco
 		})
 
 	}
+
+
+
+	angular.element(document).ready(function () {
+
+		$http.post('/getLugares')
+		.then(function(response){
+			$scope.lugares = response.data;
+			console.log(response.data)
+		}, function() {
+			sawl('Error del servidor')
+		})
+    });
 }])

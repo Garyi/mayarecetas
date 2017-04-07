@@ -30,12 +30,9 @@
   <div class="form-group">
     <label for="estadoReceta" class="col-sm-1 control-label">Lugar</label>
     <div class="col-sm-8">
-      <select ng-model="receta.lugar" class="form-control">
-        <option value="Yucatán">Yucatán</option>
-        <option value="Oaxaca">Oaxaca</option>
-        <option value="Nuevo León">Nuevo León</option>
-        <option value="coahuila">Coahuila</option>
-        <option value="Aguascalientes">Aguascalientes</option>
+      <select ng-model="receta.lugar" class="form-control" ng-options="lugar.id as lugar.nombre for lugar in lugares track by lugar.id">
+
+
       </select>
     </div>
   </div>
@@ -60,6 +57,9 @@
     <label class="control-label">Subir Imagen</label>
     <input id="input-1" type="file" class="file">
   </div>
+
+
+
 </div>
 </div>
 

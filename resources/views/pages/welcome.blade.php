@@ -1,6 +1,6 @@
 @extends('main')
 @section('content')
-
+<script src="js/angularmodules/welcome_module.js"></script>
     <div class="row">
       <div class="col-md-12">
 
