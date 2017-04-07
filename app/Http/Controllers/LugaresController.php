@@ -38,4 +38,28 @@ class LugaresController extends Controller
         return 500;
       }
     }
+
+    public function getLugarEspecifico()
+    {
+      $lid = Request::input('id');
+      $resultado = DB::table('lugares')->where('id', $lid)->get();
+      return $resultado;
+    }
+
+    public function actualizarLugar()
+    {
+      $lid = Request::input('id');
+      $lnombre = Request::input('nombre');
+
+      $query = DB::table('lugares')->where('id', $lid)->update(
+      ['nombre' => $lnombre]);
+
+      if($query)
+      {
+        return 100;
+      }
+      else{
+        return 500;
+      }
+    }
 }

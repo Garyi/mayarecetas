@@ -1,0 +1,12 @@
+<h1>Actualizar Lugares lugares</h1>
+
+<table class="table table-striped">
+  <tr>
+    <td class="text-center"><b>Lugar</b></td>
+    <td class="text-center"><b>Acción</b></td>
+  </tr>
+  <tr ng-repeat="lugar in lugaresRegistrados">
+    <td class="text-center"><input type="text" class="lugarnombreinput" value="{{lugar.nombre}}"   ng-if="desabilitado == true" disabled> <input type="text" class="lugarnombreinputh" placeholder="{{lugar.nombre}}"   ng-model="lugarAActualizar.nombre" ng-if="desabilitado == false" > </td>
+    <td class="text-center"><button type="button" name="button" class="btn btn-info" ng-click="actualizarLugar(lugar.id)" ng-if="desabilitado == true">Actualizar</button> <button type="button" name="button" class="btn btn-info" ng-click="aceptarActualiacion(lugar.id)" ng-if="desabilitado == false">Finalizar</button></td>
+  </tr>
+</table>

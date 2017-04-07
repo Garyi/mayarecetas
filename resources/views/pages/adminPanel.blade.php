@@ -58,6 +58,8 @@
           <ul class="dropdown-menu forAnimate" role="menu">
             <li><a ui-sref="agregarLugares">Agregar Lugares</a></li>
             <li><a ui-sref="eliminarLugares">Eliminar Lugares</a></li>
+            <li><a ui-sref="actualizarLugares">Actualizar Lugares</a></li>
+
 
           </ul>
         </li>

@@ -40,8 +40,85 @@ capp.config(function($stateProvider, $urlRouterProvider){
       }
     }
   })
+  $stateProvider.state('actualizarLugares', {
+    url:'/actualizarLugares',
+    views:{
+      'content':{
+        templateUrl:'templates/cp-actualizarLugares.html',
+        controller :'actualizarLugares',
+      }
+    }
+  })
 });
 
+capp.controller('actualizarLugares',['$scope','$http', function($scope, $http){
+  $scope.lugarAActualizar = {id:'', nombre:''}
+  $scope.desabilitado = true;
+  $http.post('/getLugares',{})
+  .then(function successCallback(response) {
+
+    $scope.lugaresRegistrados = response.data;
+    console.log(response.data);
+
+  }, function errorCallback(response) {
+    console.log("Error");
+  });
+
+  $scope.actualizarLugar = function(rid)
+  {
+    $scope.lugarAActualizar.id = rid;
+    $http.post('/getLugarEspecifico', $scope.lugarAActualizar)
+    .then(function successCallback(response) {
+
+      $scope.lugaresRegistrados = response.data;
+      console.log(response.data);
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+
+    console.log(rid);
+    $scope.desabilitado = false;
+  }
+
+
+  // Cuando presiona finalizar
+  $scope.aceptarActualiacion = function(rid)
+  {
+    $scope.desabilitado = true;
+    $scope.lugarAActualizar.id = rid;
+    console.log($scope.lugarAActualizar);
+
+
+
+    $http.post('/actualizarLugar', $scope.lugarAActualizar)
+    .then(function successCallback(response) {
+
+      if(response.data == 500)
+      {
+        swal('Ooops! algo salio mal', "error");
+      }
+
+      console.log(response.data);
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+
+    $http.post('/getLugares',{})
+    .then(function successCallback(response) {
+
+      $scope.lugaresRegistrados = response.data;
+      console.log(response.data);
+
+    }, function errorCallback(response) {
+      console.log("Error");
+    });
+
+    $scope.lugarAActualizar = {id:'', nombre:''}  
+  }
+
+}]);
 
 capp.controller('eliminarLugares',['$scope','$http', function($scope, $http){
   $scope.lugarAEliminar = {id:''}
