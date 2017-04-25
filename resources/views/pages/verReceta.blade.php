@@ -22,9 +22,10 @@
       <div class="col-md-12">
         <div ng-repeat="receta in recetaInfo">
           <h1><%receta.titulo%></h1>
-          <p>
+          <textarea name="name" rows="40" cols="80" style="border:none" disabled="">
             <%receta.descripcion%>
-          </p>
+          </textarea>
+
         </div>
       </div>
     </div>

@@ -77,4 +77,30 @@ class RecetasController extends Controller
       }
     }
 
+    public function guardarReceta()
+    {
+      $rid = Request::input('receta');
+      session_start();
+      if(isset($_SESSION['usuario_sesion']))
+      {
+        $uid = $_SESSION['usuario_sesion'][0]->id;
+        $select = DB::table('baules')->where('user_id',$uid)->where('receta_id',$rid)->get();
+        if(count($select) > 0)
+        {
+          return 100;
+        }
+        else {
+          $insert = DB::table('baules')->insert([
+            'user_id' => $uid,
+            'receta_id' => $rid
+          ]);
+          return 100;
+        }
+
+      }
+      else {
+        return 203;
+      }
+    }
+
 }

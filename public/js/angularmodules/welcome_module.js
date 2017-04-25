@@ -7,10 +7,11 @@ var wapp = angular.module('wapp', [], function($interpolateProvider){
 wapp.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
 console.log($location.absUrl())
+
   $http.post('getAllRecetas',{})
   .then(function successCallback(response) {
+
     $scope.todasRecetas = response.data;
-    console.log(response.data);
   }, function errorCallback(response) {
     swal("Contacta a un administrador");
   });
@@ -19,6 +20,26 @@ $scope.leerReceta = function(rid)
 {
   window.location = "verreceta=" + rid;
 }
+
+
+
+$scope.guardar = function(id)
+{
+  $http.post('/guardarRecetaC',{receta:id})
+  .then(function successCallback(response) {
+    if(response.data == 100)
+    {
+      swal("Guardado");
+    }
+    else if (response.data = 203) {
+      sweetAlert("Oops...", "Necesitas iniciar sesión!", "error");
+    }
+
+  }, function errorCallback(response) {
+    swal("Contacta a un administrador");
+  });
+}
+
 
 
 	$scope.usuarioRegister = {email:'', username:'', password:''};

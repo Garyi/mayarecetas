@@ -1,6 +1,11 @@
 @extends('main')
 @section('content')
+
 <script src="js/angularmodules/welcome_module.js"></script>
+
+<main ng-app="wapp" ng-controller="MainController">
+
+
     <div class="row">
       <div class="col-md-12">
 
@@ -50,20 +55,25 @@
       </div>
     </div>
     <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail" ng-repeat="receta in todasRecetas">
+  <div class="col-sm-6 col-md-4"  ng-repeat="receta in todasRecetas">
+
+
+    <div class="thumbnail" >
       <img src="assets/carousel/carousel1.jpg" alt="...">
       <div class="caption">
         <h3><%receta.titulo%></h3>
-        <p><%receta.descripcion%></p>
-        <p><a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> </p>
+        <!--<p><%receta.descripcion%></p>-->
+        <a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> <a href="#" class="btn btn-success" role="button" ng-click="guardar(receta.id)">Guardar</a>
       </div>
     </div>
+
+
+
   </div>
 
 
 </div>
-
+</main>
 
 
 @endsection

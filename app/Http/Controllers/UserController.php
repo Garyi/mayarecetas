@@ -198,4 +198,21 @@ class UserController extends Controller
       }
 
     }
+
+    public function isUserThere()
+    {
+    /*
+      Function que devuelve si existe un usuario logeado o no
+    */
+      session_start();
+
+      if(isset($_SESSION['usuario_sesion']))
+      {
+        return 1;
+      }
+      else {
+        return 0;
+      }
+      
+    }
 }

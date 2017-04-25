@@ -66,3 +66,5 @@ Route::post('/agregarLugar','LugaresController@agregarLugar');
 Route::post('/eliminarLugar','LugaresController@eliminarLugar');
 Route::post('/getLugarEspecifico','LugaresController@getLugarEspecifico');
 Route::post('/actualizarLugar','LugaresController@actualizarLugar');
+Route::post('/isUserThereC','UserController@isUserThere');
+Route::post('/guardarRecetaC','RecetasController@guardarReceta');
