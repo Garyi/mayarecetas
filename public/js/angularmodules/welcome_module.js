@@ -1,46 +1,31 @@
-var wapp = angular.module('wapp',[]);
-/*
-wapp.config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);
-*/
-
-wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
-
-  	/*$scope.usuario = "Jesus";
-	$scope.contrasena = 123;
-	$scope.sweetalert = function() {
-		swal({
-  			title: "Error!",
-  			text: "Here's my error message!",
-  			type: "error",
-  			confirmButtonText: "Cool"
-			});
-	}
-	*/
-
-	/*var req = {
- method: 'POST',
- url: '/loginUser',
- headers: {
-   'Content-Type': undefined
- },
- data: { test: 'test' }
-}*/
+var wapp = angular.module('wapp', [], function($interpolateProvider){
+  $interpolateProvider.startSymbol('<%');
+  $interpolateProvider.endSymbol('%>');
+});
 
 
-	/*
-	    ***********************************************************************************************************
-		***                   *************************************************************************************
-		***Registro de Usuario*************************************************************************************
-		***                   *************************************************************************************
-		***********************************************************************************************************
-	*/
+wapp.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
+
+console.log($location.absUrl())
+  $http.post('getAllRecetas',{})
+  .then(function successCallback(response) {
+    $scope.todasRecetas = response.data;
+    console.log(response.data);
+  }, function errorCallback(response) {
+    swal("Contacta a un administrador");
+  });
+
+$scope.leerReceta = function(rid)
+{
+  window.location = "verreceta=" + rid;
+}
+
+
 	$scope.usuarioRegister = {email:'', username:'', password:''};
 	$scope.registrarU = function() {
 		if(
-			$scope.usuarioRegister.email == undefined || 
-			$scope.usuarioRegister.username == undefined || 
+			$scope.usuarioRegister.email == undefined ||
+			$scope.usuarioRegister.username == undefined ||
 			$scope.usuarioRegister.password == undefined ||
 			$scope.usuarioRegister.email == '' ||
 			$scope.usuarioRegister.username == '' ||
@@ -53,7 +38,7 @@ wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
 			$scope.realizarRegistro();
 		}
 	}
-	
+
 	$scope.realizarRegistro = function() {
 
 		$http.post('/registerUser', $scope.usuarioRegister) //Posible error aquí HTTP/1.1 500 Internal Server Error
@@ -71,7 +56,7 @@ wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
 			}
 			else if (response.data == 3) {
 				swal("Correo electrónico existente");
-				location.reload();	
+				location.reload();
 			}
 
 		}, function() {
@@ -79,15 +64,6 @@ wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
 		})
 
 	}
-
-	/*
-	    ***********************************************************************************************************
-		***                   *************************************************************************************
-		***Inicio de sesión   *************************************************************************************
-		***                   *************************************************************************************
-		***********************************************************************************************************
-	*/
-
 
 
 	$scope.userLogin = {username:'', password:''};
@@ -119,57 +95,9 @@ wapp.controller('MainController', ['$scope', '$http', function($scope, $http){
 	}
 
 
-	$scope.receta = {titulo: '', categoria: '', estado: '', descripcion: ''}
-	$scope.subirReceta = function(){
-		$http.post('/subirRecetas', $scope.receta)
-		.then(function(response){
-			if(response.data == 0) {
-				swal('todo bien al parecer...')
-			}
-		}, function() {
-			swal("Error del servidor")
-		})
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     $('#gotorecetas').on('click', function (e) {
         $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     });
 
 }]);
-/*
-wapp.controller('SweetalertController', ['$scope', function($scope){
-
-	$scope.sweetalert = function() {
-		swal({
-  			title: "Error!",
-  			text: "Here's my error message!",
-  			type: "error",
-  			confirmButtonText: "Cool"
-			});
-	}
-
-	$scope.usuario = "Jesus";
-	$scope.contrasena = 123;
-	
-
-
-}]);
-
-*/

@@ -1,11 +1,17 @@
 myapp = angular.module('myapp', [], function($interpolateProvider)
 {
   $interpolateProvider.startSymbol('<%');
-       $interpolateProvider.endSymbol('%>');
+  $interpolateProvider.endSymbol('%>');
 });
-myapp.controller('mainController', ['$scope', '$http', function($scope, $http){
-  console.log(111);
-  $http.post('/getRecetaInfo',{})
+myapp.controller('mainController', ['$scope', '$http','$location', function($scope, $http, $location){
+
+  var url = $location.absUrl();
+  console.log(url);
+  var peticionid = url.split("verreceta=")[1];
+  console.log(peticionid);
+  $scope.peticion = {id:''}
+  $scope.peticion.id = peticionid
+  $http.post('/getRecetaInfo',$scope.peticion)
   .then(function successCallback(response) {
     console.log(response.data);
     $scope.recetaInfo = response.data;

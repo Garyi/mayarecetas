@@ -27,10 +27,15 @@ class RecetasController extends Controller
     }
 
 
+    public function getAllRecetas()
+    {
+      $recetas = DB::table('recetas')->where('aprobacion',1)->get();
+      return $recetas;
+    }
+
+
     public function getViewReceta($id)
     {
-      session_start();
-      $_SESSION['recetaid'] = $id;
       $receta = DB::table('recetas')->where('id',$id)->get();
       if(count($receta) != 0)
       {
@@ -43,8 +48,33 @@ class RecetasController extends Controller
 
     public function getRecetaInfo()
     {
-      session_start();
-      $receta = DB::table('recetas')->where('id',$_SESSION['recetaid'])->get();
+      $id = Request::input('id');
+      $receta = DB::table('recetas')->where('id',$id)->get();
       return $receta;
     }
+
+    public function subirRecetas() {
+      session_start();
+      $titulo = Request::input('titulo');
+      $lugar = Request::input('lugar');
+      $descripcion = Request::input('descripcion');
+      $uid = 1;
+
+
+      DB::insert('INSERT INTO recetas (titulo, lugar, descripcion, uid) VALUES (:titulo, :lugar, :descripcion, :uid)', ['titulo' => $titulo, 'lugar' => $lugar, 'descripcion' => $descripcion, 'uid' => $uid]);
+
+      return 0;
+    }
+
+
+    public function eliminarReceta()
+    {
+      $id = Request::input('id');
+      $query = DB::table('recetas')->where('id',$id)->delete();
+      if(!$query)
+      {
+        return 500;
+      }
+    }
+
 }

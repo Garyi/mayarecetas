@@ -118,24 +118,6 @@ class UserController extends Controller
 
     }
 
-    public function subirRecetas() {
-      session_start();
-      $titulo = Request::input('titulo');
-      $categoria = Request::input('categoria');
-      $estado = Request::input('estado');
-      $descripcion = Request::input('descripcion');
-      $uid = 1;
-
-
-
-
-      DB::insert('INSERT INTO recetas (titulo, categoria, estado, descripcion, uid) VALUES (:titulo, :categoria, :estado, :descripcion, :uid)', ['titulo' => $titulo, 'categoria' => $categoria, 'estado' => $estado, 'descripcion' => $descripcion, 'uid' => $uid]);
-
-      return 0;
-
-
-    }
-
 
     public function getUsers()
     {

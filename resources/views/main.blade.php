@@ -3,7 +3,7 @@
 
 @include('partials._head')
 
-<body ng-app="wapp" ng-controller="MainController">
+<body>
   <div class="container-fluid">
 
     <div class="row">

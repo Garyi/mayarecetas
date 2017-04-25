@@ -152,3 +152,14 @@ section{
 .aprobar-recetas-table{
   margin-top: 2em;
 }
+
+
+
+.lugarnombreinput{
+  border:none;
+  background: none;
+}
+.lugarnombreinputh{
+  background: none;
+
+}
