@@ -5,7 +5,7 @@
 @include('partials._head')
 
 <script src="js/angularmodules/subirRecetas_module.js"></script>
-  
+
 
 <div class="container-fluid" >
 <div class="jumbotron">
@@ -20,17 +20,21 @@
 <div ng-app="rapp" ng-controller="MainController" class="container-fluid">
 <div class="row">
 <div class="col-sm-8">
-<form class="form-horizontal">
+
+
+
+
+<form class="form-horizontal" method="post" action="/InsertRecetaC" enctype="multipart/form-data">
   <div class="form-group">
     <label for="tituloReceta" class="col-md-1 control-label">Título</label>
     <div class="col-sm-8">
-      <input ng-model="receta.titulo" type="text" class="form-control" id="tituloReceta" placeholder="Título">
+      <input ng-model="receta.titulo" type="text" class="form-control" id="tituloReceta" placeholder="Título" name="titulo">
     </div>
   </div>
   <div class="form-group">
     <label for="estadoReceta" class="col-sm-1 control-label">Lugar</label>
     <div class="col-sm-8">
-      <select ng-model="receta.lugar" class="form-control" ng-options="lugar.id as lugar.nombre for lugar in lugares track by lugar.id">
+      <select ng-model="receta.lugar" class="form-control" name="lugar" ng-options="lugar.id as lugar.nombre for lugar in lugares track by lugar.id">
 
 
       </select>
@@ -39,18 +43,22 @@
   <div class="form-group">
     <label for="descripcionReceta" class="col-sm-1 control-label">Descripción</label>
     <div class="col-sm-8">
-      <textarea ng-model="receta.descripcion" class="form-control"  id="descripcionReceta" placeholder="Descripción..." rows="10"></textarea>
+      <textarea ng-model="receta.descripcion" class="form-control" name="descripcion"  id="descripcionReceta" placeholder="Descripción..." rows="10"></textarea>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-1 col-sm-10">
-      <button ng-click="subirReceta()" type="submit" class="btn btn-info">Subir receta</button>
+      <label for="portada_receta">Portada</label>
+      <input type="file" id="portada_receta" name="file" uploader-model="file" style="padding-bottom:1em;">
+      <button onclick="location.reload()" type="submit" class="btn btn-info">Subir receta</button>
       <img width="20" height="20" src="assets/upload-image.png" style="display:none;">
     </div>
 
   </div>
 </form>
+
+
 
 </div>
   <div class="col-sm-4" style="display:none ">

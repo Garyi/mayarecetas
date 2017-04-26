@@ -59,7 +59,7 @@
 
 
     <div class="thumbnail" >
-      <img src="assets/carousel/carousel1.jpg" alt="...">
+      <img src="<%receta.portada%>" alt="...">
       <div class="caption">
         <h3><%receta.titulo%></h3>
         <!--<p><%receta.descripcion%></p>-->

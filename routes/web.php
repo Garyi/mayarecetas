@@ -72,3 +72,4 @@ Route::post('/actualizarLugar','LugaresController@actualizarLugar');
 Route::post('/isUserThereC','UserController@isUserThere');
 Route::post('/guardarRecetaC','RecetasController@guardarReceta');
 Route::post('/getRecetasDeBaulC','RecetasController@getRecetasDeBaul');
+Route::post('/InsertRecetaC','RecetasController@InsertReceta');

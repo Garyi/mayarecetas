@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Request;
 
+
 class RecetasController extends Controller
 {
     public function cargarRecetasAAprobar()
@@ -112,6 +113,41 @@ class RecetasController extends Controller
       ->get();
 
       return $recetas;
+    }
+
+    public function InsertReceta()
+    {
+      $titulo = $_POST["titulo"];
+      $lugar =  $_POST["lugar"];
+      $desc = $_POST["descripcion"];
+
+      $today = getdate();
+      $file = $_FILES["file"]["name"];
+      if(!is_dir("files/"))
+      {
+        mkdir("files/",0777);
+      }
+
+      if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "files/".$file))
+      {
+        rename("files/".$file, "files/".$today[0].$file);
+        $ruta = "files/".$today[0].$file;
+        $claveNombre = explode(".",$file);
+        $clave = $today[0].$claveNombre[0];
+
+     }
+
+//Query
+      $query = DB::table('recetas')->insert(
+        [
+          'titulo' => $titulo,
+          'lugar' => $lugar,
+          'descripcion' => $desc,
+          'portada' => $ruta
+        ]
+      );
+
+      return redirect('/subirRecetas');
     }
 
 }
