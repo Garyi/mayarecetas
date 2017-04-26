@@ -18,4 +18,13 @@ myapp.controller('mainController', ['$scope', '$http','$location', function($sco
   }, function errorCallback(response) {
     console.log("Error");
   });
+
+  $http.post('/isUserThereC',{})
+  .then(function successCallback(response) {
+
+    $scope.usuarioon = response.data;
+
+  }, function errorCallback(response) {
+    swal("Contacta a un administrador");
+  });
 }]);
