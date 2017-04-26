@@ -38,6 +38,9 @@ Route::get('/404',function(){
   return view('404');
 });
 
+Route::get('/miBaulV',function(){
+  return view('pages/mibaul');
+});
 
 Route::get('/verreceta={id}','RecetasController@getViewReceta');
 
@@ -68,3 +71,4 @@ Route::post('/getLugarEspecifico','LugaresController@getLugarEspecifico');
 Route::post('/actualizarLugar','LugaresController@actualizarLugar');
 Route::post('/isUserThereC','UserController@isUserThere');
 Route::post('/guardarRecetaC','RecetasController@guardarReceta');
+Route::post('/getRecetasDeBaulC','RecetasController@getRecetasDeBaul');

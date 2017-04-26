@@ -1,6 +1,5 @@
-<!-- MODALES=================================================================== -->
 
-<!-- Modal Iniciar Sesión -->
+
 
 <div id="iniciarSesion" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -12,13 +11,14 @@
         <h4 class="modal-title">Iniciar Sesión</h4>
       </div>
       <div class="modal-body">
-  
+
          <div class="form-group">
           <label for="usr">Usuario:</label>
           <input type="text" id="inputUser" class="form-control" ng-model="userLogin.username" required autofocus>
         </div>
         <div class="form-group">
           <label for="pwd">Contraseña:</label>
+
           <input type="password" id="inputPassword" class="form-control" ng-model="userLogin.password" required>
         </div>
       </div>

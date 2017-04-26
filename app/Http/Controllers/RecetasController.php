@@ -103,4 +103,15 @@ class RecetasController extends Controller
       }
     }
 
+    public function getRecetasDeBaul()
+    {
+      session_start();
+      $recetas = DB::table('recetas')
+      ->join('baules','recetas.id','=','baules.receta_id')
+      ->where('baules.user_id', '=', $_SESSION['usuario_sesion'][0]->id)
+      ->get();
+
+      return $recetas;
+    }
+
 }

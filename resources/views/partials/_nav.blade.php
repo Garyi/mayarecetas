@@ -1,4 +1,7 @@
-<nav class="navbar navbar-default menu-welcome">
+<script src="js/angularmodules/welcome_module.js"></script>
+
+
+<nav class="navbar navbar-default menu-welcome" ng-app="wapp" ng-controller="MainController">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -39,11 +42,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            
-              <li><a href="#" ng-click="cerrarSesion();">Cerrar Sesión</a></li>
 
-            <li><a href="#" data-toggle="modal" data-target="#registrarse">Registrarse</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#iniciarSesion">Iniciar Sesión</a></li>
+            <li ng-if="usuarioon == 1"><a href="#" ng-click="cerrarSesion();">Cerrar Sesión</a></li>
+            <li ng-if="usuarioon == 1"><a href="#" onclick="location = '/miBaulV'">Mi Baul</a></li>
+            <li  ng-if="usuarioon == 0"><a href="#" data-toggle="modal" data-target="#registrarse">Registrarse</a></li>
+            <li  ng-if="usuarioon == 0"><a href="#" data-toggle="modal" data-target="#iniciarSesion">Iniciar Sesión</a></li>
 
 
           </ul>

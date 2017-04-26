@@ -6,7 +6,16 @@ var wapp = angular.module('wapp', [], function($interpolateProvider){
 
 wapp.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
-console.log($location.absUrl())
+$http.post('/isUserThereC',{})
+.then(function successCallback(response) {
+
+  $scope.usuarioon = response.data;
+
+}, function errorCallback(response) {
+  swal("Contacta a un administrador");
+});
+
+
 
   $http.post('getAllRecetas',{})
   .then(function successCallback(response) {
@@ -29,7 +38,7 @@ $scope.guardar = function(id)
   .then(function successCallback(response) {
     if(response.data == 100)
     {
-      swal("Guardado");
+      swal("¡Buen Trabajo!", "¡Se ha guardado la receta!", "success")
     }
     else if (response.data = 203) {
       sweetAlert("Oops...", "Necesitas iniciar sesión!", "error");
@@ -89,6 +98,7 @@ $scope.guardar = function(id)
 
 	$scope.userLogin = {username:'', password:''};
 	$scope.iniciarSesionU = function() {
+    console.log("ini");
 		$http.post('/loginUser', $scope.userLogin)
 		.then(function(response){
 			if (response.data == 401) {
