@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-04-2017 a las 05:20:35
+-- Tiempo de generación: 26-04-2017 a las 20:04:19
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -95,16 +95,20 @@ CREATE TABLE `recetas` (
   `titulo` varchar(100) NOT NULL,
   `lugar` int(11) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
-  `uid` bigint(20) NOT NULL,
-  `aprobacion` tinyint(1) NOT NULL DEFAULT '0'
+  `aprobacion` tinyint(1) NOT NULL DEFAULT '0',
+  `portada` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `recetas`
 --
 
-INSERT INTO `recetas` (`id`, `titulo`, `lugar`, `descripcion`, `uid`, `aprobacion`) VALUES
-(1, 'Calabacitas con elote', 0, '...\n5 elotes tiernos, desgranados\n2 cucharadas de aceite\n1/4 taza de cebolla picada\n1 diente de ajo, finamente picado\n250 gramos de jitomate, finamente picado\n1/2 kilo de calabacitas, rebanadas\n1 chile poblano, sin semillas y picado\nSal y pimienta, al gustoColoca los granos de elote en una cacerola mediana, cúbrelos con agua y deja que suelten el hervor a fuego alto. Tapa, reduce el fuego a bajo y cocina durante 5 minutos o hasta que se hayan ablandado. Escurre bien.\nMientras, calienta el aceite en un sartén grande a fuego medio, y sofríe la cebolla y el ajo hasta que se vean transparentes. Agrega el jitomate y cocina hasta que cambie de color. Incorpora las calabacitas, chile poblano y granos de elote cocidos; sazona con sal y pimienta. Cocina a fuego bajo, moviendo de vez en cuando, hasta que las calabacitas estén suaves, pero aún firmes, aproximadamente 10 minutos.', 1, 1);
+INSERT INTO `recetas` (`id`, `titulo`, `lugar`, `descripcion`, `aprobacion`, `portada`) VALUES
+(11, 'Mario a la bologna', 12, 'Precaliente el horno a 220 centigrados.\r\nEnjuague las gallinitas bajo un chorro de agua fria, desechando las visceras y secandolas con una toalla de papel.\r\nBarnice las gallinitas con aceite de oliva y espolvoree adentro y por fuero con sal y pimienta.\r\nEn un recipiente, mezcle las calabazas rebanadas, la cebolla, ajo, 3 cucharadas de aceite, vinagre balsámico y hierbas de Provenza.\r\nColoque las gallinas con la pechuga hacia arriba, sobre una charola de horno engrasada con aceite.\r\nColoque la mezcla de verduras alrededor de las gallinas.\r\nHornee por 35-40 minutos, hasta que los jugos salgan claros.\r\nInserte un termómetro en la parte mas gruesa del muslo y asegure que registra 77 grados (para que estén cocidas).\r\nPase las gallinas a una tabla para cortar y cubra con papel de aluminio. Deje reposar 5 minutos.\r\nAcomode en platos individuales con las verduras alrededor y decore con aceitunas negras.', 1, 'files/1493228608mario.jpeg'),
+(12, 'dasd', 13, 'asasd', 0, 'files/1493228983mario.jpeg'),
+(13, 'dasd', 11, 'asdasd', 0, 'files/1493229089mario.jpeg'),
+(14, 'asd', 13, 'asdas', 0, 'files/1493229120mario.jpeg'),
+(15, 'asda', 11, 'asdasd', 0, 'files/1493229773mario.jpeg');
 
 -- --------------------------------------------------------
 
@@ -185,7 +189,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `recetas`
 --
 ALTER TABLE `recetas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
