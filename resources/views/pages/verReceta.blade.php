@@ -88,7 +88,7 @@
     <div class="row">
       <div class="col-md-12">
         <div ng-repeat="receta in recetaInfo" class="text-center">
-          <img src="<%receta.portada%>" alt="" height="200em" class="img-thumbnail">
+          <img src="<%receta.portada%>" alt="" style="height:20em;" class="img-thumbnail">
           <h1><%receta.titulo%></h1>
           <textarea name="name" rows="40" cols="80" style="border:none; background:none;" disabled="">
             <%receta.descripcion%>
