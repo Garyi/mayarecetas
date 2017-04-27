@@ -62,10 +62,13 @@
       <img src="<%receta.portada%>" alt="...">
       <div class="caption">
         <h3><%receta.titulo%></h3>
+
         <!--<p><%receta.descripcion%></p>-->
         <a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> <a href="#" class="btn btn-success" role="button" ng-click="guardar(receta.id)">Guardar</a>
       </div>
     </div>
+
+
 
 
 

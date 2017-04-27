@@ -46,6 +46,20 @@ class LugaresController extends Controller
       return $resultado;
     }
 
+
+    public function getViewLugares($id)
+    {
+      $lugar = DB::table('lugares')->where('id',$id)->get();
+      if(count($lugar) != 0)
+      {
+        return view('pages/verLugar');
+      }
+      else {
+        return view('pages/404');
+      }
+    }
+
+
     public function actualizarLugar()
     {
       $lid = Request::input('id');
@@ -61,5 +75,19 @@ class LugaresController extends Controller
       else{
         return 500;
       }
+    }
+
+
+    public function getRecetasDelLugar()
+    {
+      $id = Request::input('id');
+      $recetas = DB::table('recetas')
+      ->join('lugares','recetas.lugar','=','lugares.id')
+      ->select('lugares.id','recetas.id','recetas.titulo','recetas.descripcion','recetas.portada')
+      ->where('lugares.id','=',$id)
+      ->where('recetas.aprobacion','=',1)
+      ->get();
+
+      return $recetas;
     }
 }

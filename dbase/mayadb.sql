@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-04-2017 a las 20:04:19
+-- Tiempo de generación: 27-04-2017 a las 06:53:07
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -37,7 +37,8 @@ CREATE TABLE `baules` (
 --
 
 INSERT INTO `baules` (`id`, `user_id`, `receta_id`) VALUES
-(6, 3, 1);
+(6, 3, 1),
+(7, 5, 11);
 
 -- --------------------------------------------------------
 
@@ -98,17 +99,6 @@ CREATE TABLE `recetas` (
   `aprobacion` tinyint(1) NOT NULL DEFAULT '0',
   `portada` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `recetas`
---
-
-INSERT INTO `recetas` (`id`, `titulo`, `lugar`, `descripcion`, `aprobacion`, `portada`) VALUES
-(11, 'Mario a la bologna', 12, 'Precaliente el horno a 220 centigrados.\r\nEnjuague las gallinitas bajo un chorro de agua fria, desechando las visceras y secandolas con una toalla de papel.\r\nBarnice las gallinitas con aceite de oliva y espolvoree adentro y por fuero con sal y pimienta.\r\nEn un recipiente, mezcle las calabazas rebanadas, la cebolla, ajo, 3 cucharadas de aceite, vinagre balsámico y hierbas de Provenza.\r\nColoque las gallinas con la pechuga hacia arriba, sobre una charola de horno engrasada con aceite.\r\nColoque la mezcla de verduras alrededor de las gallinas.\r\nHornee por 35-40 minutos, hasta que los jugos salgan claros.\r\nInserte un termómetro en la parte mas gruesa del muslo y asegure que registra 77 grados (para que estén cocidas).\r\nPase las gallinas a una tabla para cortar y cubra con papel de aluminio. Deje reposar 5 minutos.\r\nAcomode en platos individuales con las verduras alrededor y decore con aceitunas negras.', 1, 'files/1493228608mario.jpeg'),
-(12, 'dasd', 13, 'asasd', 0, 'files/1493228983mario.jpeg'),
-(13, 'dasd', 11, 'asdasd', 0, 'files/1493229089mario.jpeg'),
-(14, 'asd', 13, 'asdas', 0, 'files/1493229120mario.jpeg'),
-(15, 'asda', 11, 'asdasd', 0, 'files/1493229773mario.jpeg');
 
 -- --------------------------------------------------------
 
@@ -174,7 +164,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `baules`
 --
 ALTER TABLE `baules`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `lugares`
 --
@@ -189,7 +179,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `recetas`
 --
 ALTER TABLE `recetas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --

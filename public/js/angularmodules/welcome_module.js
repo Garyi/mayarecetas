@@ -6,6 +6,20 @@ var wapp = angular.module('wapp', [], function($interpolateProvider){
 
 wapp.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
+//Navbar inicio
+
+$http.post('/getLugares',{})
+.then(function successCallback(response) {
+
+  $scope.lugares = response.data;
+
+}, function errorCallback(response) {
+  swal("Contacta a un administrador");
+});
+
+
+
+
 $http.post('/isUserThereC',{})
 .then(function successCallback(response) {
 
@@ -14,6 +28,8 @@ $http.post('/isUserThereC',{})
 }, function errorCallback(response) {
   swal("Contacta a un administrador");
 });
+
+//Navbar fin
 
 
 

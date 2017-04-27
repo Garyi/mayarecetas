@@ -43,6 +43,7 @@ Route::get('/miBaulV',function(){
 });
 
 Route::get('/verreceta={id}','RecetasController@getViewReceta');
+Route::get('/verlugar={id}','LugaresController@getViewLugares');
 
 /*
 Aquí están las rutas a controladores
@@ -73,3 +74,4 @@ Route::post('/isUserThereC','UserController@isUserThere');
 Route::post('/guardarRecetaC','RecetasController@guardarReceta');
 Route::post('/getRecetasDeBaulC','RecetasController@getRecetasDeBaul');
 Route::post('/InsertRecetaC','RecetasController@InsertReceta');
+Route::post('/getRecetasDelLugarC','LugaresController@getRecetasDelLugar');
