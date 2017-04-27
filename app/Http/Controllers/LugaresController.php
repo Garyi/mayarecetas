@@ -90,4 +90,24 @@ class LugaresController extends Controller
 
       return $recetas;
     }
+
+    public function getNombresLugares()
+    {
+      $results = DB::table('lugares')->select('nombre')->get();
+      $titulos = array();
+      for($i = 0; $i < count($results) ; $i++)
+      {
+        foreach ($results[$i] as $key => $value) {
+            $titulos[] = $value;
+        }
+      }
+      return $titulos;
+    }
+
+    public function getLugarID()
+    {
+      $lugar = Request::input('titulo');
+      $id = DB::table('lugares')->select('id')->where('nombre', $lugar)->get();
+      return $id;
+    }
 }

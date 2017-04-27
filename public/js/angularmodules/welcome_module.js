@@ -6,6 +6,8 @@ var wapp = angular.module('wapp', [], function($interpolateProvider){
 
 wapp.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
+
+
 //Navbar inicio
 
 $http.post('/getLugares',{})
@@ -18,7 +20,17 @@ $http.post('/getLugares',{})
 });
 
 
+//Buscador Navbar
+var buscador = document.getElementById("buscador");
+var awesomplete = new Awesomplete(buscador);
 
+$http.post('getNombresLugaresC',{})
+.then(function successCallback(response) {
+   $scope.awlist = response.data;
+  awesomplete.list = response.data;
+}, function errorCallback(response) {
+  swal("Contacta a un administrador");
+});
 
 $http.post('/isUserThereC',{})
 .then(function successCallback(response) {
@@ -29,6 +41,23 @@ $http.post('/isUserThereC',{})
   swal("Contacta a un administrador");
 });
 
+$scope.busqueda = {titulo:''}
+$scope.buscar = function()
+{
+  $scope.busqueda.titulo = $("#buscador").val();
+  console.log($scope.busqueda);
+
+  $http.post('/getLugarIDC', $scope.busqueda)
+  .then(function successCallback(response) {
+   $scope.id_busqueda = response.data[0].id;
+   window.location = "verlugar="+$scope.id_busqueda;
+  }, function errorCallback(response) {
+    swal("Contacta a un administrador");
+  });
+
+
+
+}
 //Navbar fin
 
 

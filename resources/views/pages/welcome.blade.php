@@ -59,7 +59,7 @@
 
 
     <div class="thumbnail" >
-      <img src="<%receta.portada%>" alt="...">
+      <img src="<%receta.portada%>" class="img-thumbnail" style="height:15em;"alt="...">
       <div class="caption">
         <h3><%receta.titulo%></h3>
 
