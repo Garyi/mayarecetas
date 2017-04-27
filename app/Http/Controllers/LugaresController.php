@@ -110,4 +110,11 @@ class LugaresController extends Controller
       $id = DB::table('lugares')->select('id')->where('nombre', $lugar)->get();
       return $id;
     }
+
+    public function getLugarNombre()
+    {
+      $id = Request::input('id');
+      $response = DB::table('lugares')->select('nombre')->where('id',$id)->get();
+      return $response;
+    }
 }

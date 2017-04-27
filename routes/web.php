@@ -77,3 +77,4 @@ Route::post('/InsertRecetaC','RecetasController@InsertReceta');
 Route::post('/getRecetasDelLugarC','LugaresController@getRecetasDelLugar');
 Route::post('/getNombresLugaresC','LugaresController@getNombresLugares');
 Route::post('/getLugarIDC','LugaresController@getLugarID');
+Route::post('/getLugarNombreC','LugaresController@getLugarNombre');

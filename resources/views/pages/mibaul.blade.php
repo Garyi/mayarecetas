@@ -32,26 +32,23 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Inicio<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href="/">Inicio<span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lugares <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li ng-repeat="lugar in lugares"><a ng-href="/verlugar=<%lugar.id%>"><%lugar.nombre%></a></li>
                   </ul>
                 </li>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+
+                  <!--Awesomplete starts-->
+                  <input id="buscador"  class="form-control" placeholder="Search" />
+                  <!--Awesomplete finish-->
+
                 </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
+                <button type="submit" class="btn btn-default" ng-click="buscar()">Buscar</button>
               </form>
               <ul class="nav navbar-nav navbar-left">
                 <li class="dropdown">
@@ -59,6 +56,10 @@
                   <ul class="dropdown-menu">
 
                     <li ng-if="usuarioon == 1"><a href="#" ng-click="cerrarSesion();">Cerrar Sesión</a></li>
+                    <li ng-if="usuarioon == 1"><a href="#" onclick="location = '/miBaulV'">Mi Baul</a></li>
+                    <li  ng-if="usuarioon == 0"><a href="#" data-toggle="modal" data-target="#registrarse">Registrarse</a></li>
+                    <li  ng-if="usuarioon == 0"><a href="#" data-toggle="modal" data-target="#iniciarSesion">Iniciar Sesión</a></li>
+
 
                   </ul>
                 </li>
@@ -78,7 +79,7 @@
 
 
   <div class="thumbnail" >
-    <img src="<%receta.portada%>" alt="...">
+    <img ng-src="<%receta.portada%>" class="img-thumbnail" style="height:15em;"alt="...">
     <div class="caption">
       <h3><%receta.titulo%></h3>
       <!--<p><%receta.descripcion%></p>-->
@@ -93,6 +94,69 @@
 
 
   </div>
+  <div id="iniciarSesion" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Iniciar Sesión</h4>
+        </div>
+        <div class="modal-body">
+
+           <div class="form-group">
+            <label for="usr">Usuario:</label>
+            <input type="text" id="inputUser" class="form-control" ng-model="userLogin.username" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Contraseña:</label>
+
+            <input type="password" id="inputPassword" class="form-control" ng-model="userLogin.password" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button ng-click="iniciarSesionU()" type="button" class="btn btn-default" data-dismiss="modal">Confirmar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Modal registrarse -->
+
+  <div id="registrarse" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Registrarse</h4>
+        </div>
+
+        <div class="modal-body">
+           <div class="form-group">
+            <label for="usr">Correo Electrónico:</label>
+            <input type="email" id="inputEmail" class="form-control" ng-model="usuarioRegister.email" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="usr">Nombre de usuario:</label>
+            <input type="text" id="inputEmail" class="form-control" ng-model="usuarioRegister.username" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Contraseña:</label>
+            <input type="password" id="inputPassword" class="form-control" ng-model="usuarioRegister.password" required>
+          </div>
+        <div class="modal-footer">
+          <button ng-click="registrarU();" type="button" class="btn btn-default" data-dismiss="modal">Registrarse</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 
 </body>
