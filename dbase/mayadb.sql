@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 27-04-2017 a las 22:34:03
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Host: localhost
+-- Generation Time: Apr 28, 2017 at 11:31 
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `mayadb`
+-- Database: `mayadb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `baules`
+-- Table structure for table `baules`
 --
 
 CREATE TABLE `baules` (
@@ -33,7 +33,7 @@ CREATE TABLE `baules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `baules`
+-- Dumping data for table `baules`
 --
 
 INSERT INTO `baules` (`id`, `user_id`, `receta_id`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `baules` (`id`, `user_id`, `receta_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lugares`
+-- Table structure for table `lugares`
 --
 
 CREATE TABLE `lugares` (
@@ -53,7 +53,7 @@ CREATE TABLE `lugares` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `lugares`
+-- Dumping data for table `lugares`
 --
 
 INSERT INTO `lugares` (`id`, `nombre`, `status`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `lugares` (`id`, `nombre`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `perfiles`
+-- Table structure for table `perfiles`
 --
 
 CREATE TABLE `perfiles` (
@@ -73,7 +73,7 @@ CREATE TABLE `perfiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `perfiles`
+-- Dumping data for table `perfiles`
 --
 
 INSERT INTO `perfiles` (`id`, `nombre`) VALUES
@@ -84,7 +84,7 @@ INSERT INTO `perfiles` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `recetas`
+-- Table structure for table `recetas`
 --
 
 CREATE TABLE `recetas` (
@@ -97,7 +97,7 @@ CREATE TABLE `recetas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `recetas`
+-- Dumping data for table `recetas`
 --
 
 INSERT INTO `recetas` (`id`, `titulo`, `lugar`, `descripcion`, `aprobacion`, `portada`) VALUES
@@ -116,7 +116,30 @@ INSERT INTO `recetas` (`id`, `titulo`, `lugar`, `descripcion`, `aprobacion`, `po
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `recetas_calificacion`
+--
+
+CREATE TABLE `recetas_calificacion` (
+  `id` int(11) NOT NULL,
+  `receta_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `calificacion` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `recetas_calificacion`
+--
+
+INSERT INTO `recetas_calificacion` (`id`, `receta_id`, `usuario_id`, `calificacion`) VALUES
+(18, 2, 5, 5),
+(19, 6, 5, 2),
+(20, 7, 5, 3),
+(21, 9, 5, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -128,7 +151,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`, `perfil_id`, `email`) VALUES
@@ -136,65 +159,76 @@ INSERT INTO `usuarios` (`id`, `username`, `password`, `perfil_id`, `email`) VALU
 (5, 'webmaster', '50a9c7dbf0fa09e8969978317dca12e8', 2, 'xbox_live@live.com');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `baules`
+-- Indexes for table `baules`
 --
 ALTER TABLE `baules`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `lugares`
+-- Indexes for table `lugares`
 --
 ALTER TABLE `lugares`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `perfiles`
+-- Indexes for table `perfiles`
 --
 ALTER TABLE `perfiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `recetas`
+-- Indexes for table `recetas`
 --
 ALTER TABLE `recetas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `recetas_calificacion`
+--
+ALTER TABLE `recetas_calificacion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `baules`
+-- AUTO_INCREMENT for table `baules`
 --
 ALTER TABLE `baules`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT de la tabla `lugares`
+-- AUTO_INCREMENT for table `lugares`
 --
 ALTER TABLE `lugares`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT de la tabla `perfiles`
+-- AUTO_INCREMENT for table `perfiles`
 --
 ALTER TABLE `perfiles`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `recetas`
+-- AUTO_INCREMENT for table `recetas`
 --
 ALTER TABLE `recetas`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `recetas_calificacion`
+--
+ALTER TABLE `recetas_calificacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
