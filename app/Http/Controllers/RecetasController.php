@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use DB;
 use Request;
+use Illuminate\Support\Facades\Log;
 
 
 class RecetasController extends Controller
@@ -30,8 +31,36 @@ class RecetasController extends Controller
 
     public function getAllRecetas()
     {
-      $recetas = DB::table('recetas')->where('aprobacion',1)->get();
-      return $recetas;
+      $recetas = array();
+      session_start();
+      if(isset($_SESSION['usuario_sesion'])){
+
+        $uid = $_SESSION['usuario_sesion'][0]->id;
+
+        $validacion = DB::select("SELECT receta_id FROM recetas_calificacion WHERE usuario_id = '$uid'");
+
+        if ($validacion == null) { // Si no existe ninguna receta calificada por el usuario
+
+          $receta = DB::table('recetas')->where('aprobacion',1)->get();
+          $recetas[] = $receta;
+          return $recetas;
+
+        } else {
+
+          $receta = DB::select("SELECT r.id, r.titulo, r.lugar, r.descripcion, r.aprobacion, r.portada, rc.receta_id, rc.usuario_id, rc.calificacion FROM recetas AS r JOIN recetas_calificacion AS rc ON r.id = rc.receta_id WHERE '$uid' = rc.usuario_id AND r.aprobacion = 1");
+          $recetaNC = DB::select("SELECT * FROM recetas WHERE aprobacion = 1 AND id NOT IN (SELECT receta_id FROM recetas_calificacion WHERE usuario_id = '$uid')");
+          $recetas[] = $receta;
+          $recetas[] = $recetaNC;
+          return $recetas;
+        }
+
+      } else {
+
+        $receta = DB::table('recetas')->where('aprobacion',1)->get();
+        $recetas[] = $receta;
+        return $recetas;
+        //return $receta;
+      }
     }
 
 
@@ -148,6 +177,27 @@ class RecetasController extends Controller
       );
 
       return redirect('/subirRecetas');
+    }
+
+    public function guardarCalifReceta() {
+      session_start();
+      if(isset($_SESSION['usuario_sesion'])) {
+        //Log::info("SESSION : " . print_r($_SESSION, true));
+        //dd($_SESSION)
+        $uid = $_SESSION['usuario_sesion'][0]->id;
+        $calif = Request::input('rating');
+        $rid = Request::input('rid');
+        $validacion = DB::select("SELECT * FROM recetas_calificacion WHERE receta_id = '$rid' AND usuario_id = '$uid'");
+        if ($validacion == null) {
+          DB::insert('INSERT INTO recetas_calificacion (usuario_id, calificacion, receta_id) VALUES (:uid, :calif, :rid)', ['uid' => $uid, 'calif' => $calif, 'rid' => $rid]);
+        } else {
+          DB::update("UPDATE recetas_calificacion SET calificacion = '$calif' WHERE receta_id = '$rid' AND usuario_id = '$uid'");
+        }
+        return 0;
+
+      } else {
+        return 1;
+      }
     }
 
 }

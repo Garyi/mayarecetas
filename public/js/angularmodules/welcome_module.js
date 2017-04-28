@@ -65,7 +65,10 @@ $scope.buscar = function()
   $http.post('getAllRecetas',{})
   .then(function successCallback(response) {
 
-    $scope.todasRecetas = response.data;
+    $scope.todasRecetas = response.data[0];
+    $scope.todasRecetasNC = response.data[1];
+    //$scope.todasRecetas = response.data
+    console.log($scope.todasRecetas)
   }, function errorCallback(response) {
     swal("Contacta a un administrador");
   });
@@ -155,6 +158,23 @@ $scope.guardar = function(id)
 			}
 		}, function() {
 			swal("Error del servidor");
+		})
+
+	}
+
+	$scope.enviarCalif = function(id,valor) {
+		$scope.calificacion = {rating: valor , rid: id}
+		$http.post('/calificarRecetaC', $scope.calificacion)
+		.then(function(response){
+			if(response.data == 1){
+				swal("Inicia sesion para calificar")
+				$scope.receta.calificacion = 0
+			} else {
+				swal("Calificación guardada correctamente")				
+			}
+			
+		}, function() {
+			swal("Ups, ocurrió un error")
 		})
 
 	}
