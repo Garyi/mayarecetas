@@ -109,10 +109,9 @@
       <img src="<%receta.portada%>" class="img-thumbnail" style="height:15em;"alt="...">
       <div class="caption">
         <h3><%receta.titulo%></h3>
+        Calificacion dada: <%receta.calificacion%>
         <form>
                     <fieldset class="rating">
-
-
                         <input ng-click="enviarCalif(receta.id,5)"    ng-model="receta.calificacion" type="radio" id="<%receta.id%>star5"     name="rating" value="5" />    <label class = "full" for="<%receta.id%>star5"      title="Awesome - 5 stars"></label>
                         <input ng-click="enviarCalif(receta.id,4.5)"  ng-model="receta.calificacion" type="radio" id="<%receta.id%>star4half" name="rating" value="4.5" />  <label class="half"   for="<%receta.id%>star4half"  title="Pretty good - 4.5 stars"></label>
                         <input ng-click="enviarCalif(receta.id,4)"    ng-model="receta.calificacion" type="radio" id="<%receta.id%>star4"     name="rating" value="4" />    <label class = "full" for="<%receta.id%>star4"      title="Pretty good - 4 stars"></label>
@@ -123,12 +122,11 @@
                         <input ng-click="enviarCalif(receta.id,1.5)"  ng-model="receta.calificacion" type="radio" id="<%receta.id%>star1half" name="rating" value="1.5" />  <label class="half"   for="<%receta.id%>star1half"  title="Meh - 1.5 stars"></label>
                         <input ng-click="enviarCalif(receta.id,1)"    ng-model="receta.calificacion" type="radio" id="<%receta.id%>star1"     name="rating" value="1" />    <label class = "full" for="<%receta.id%>star1"      title="Sucks big time - 1 star"></label>
                         <input ng-click="enviarCalif(receta.id,0.5)"  ng-model="receta.calificacion" type="radio" id="<%receta.id%>starhalf"  name="rating" value="0.5" />  <label class="half"   for="<%receta.id%>starhalf"   title="Sucks big time - 0.5 stars"></label>
-
                     </fieldset>
         </form>
-              
 
-        <a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> <a href="#" class="btn btn-success" role="button" ng-click="guardar(receta.id)">Guardar</a> 
+
+        <a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> <a href="#" class="btn btn-success" role="button" ng-click="guardar(receta.id)">Guardar</a>
 
       </div>
     </div>
@@ -147,7 +145,7 @@
         <h3><%receta.titulo%></h3>
 
         <!--<p><%receta.descripcion%></p>-->
- 
+
                     <fieldset class="rating">
 
                         <input ng-click="enviarCalif(receta.id,5)" ng-model="receta.calificacion" type="radio" id="<%receta.id%>star5" name="rating" value="5" /><label class = "full" for="<%receta.id%>star5" title="Awesome - 5 stars"></label>
@@ -162,9 +160,9 @@
                         <input ng-click="enviarCalif(receta.id,0.5)" ng-model="receta.calificacion" type="radio" id="<%receta.id%>starhalf" name="rating" value="0.5" /><label class="half" for="<%receta.id%>starhalf" title="Sucks big time - 0.5 stars"></label>
 
                     </fieldset>
-             
 
-        <a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> <a href="#" class="btn btn-success" role="button" ng-click="guardar(receta.id)">Guardar</a> 
+
+        <a href="#" class="btn btn-primary" role="button" ng-click="leerReceta(receta.id)">Leer</a> <a href="#" class="btn btn-success" role="button" ng-click="guardar(receta.id)">Guardar</a>
 
       </div>
     </div>
